@@ -196,6 +196,104 @@ process_user("")
 # Invalid name
 
 
+# ============================================================
+# 13.5 - Nested Functions and Scope
+# ============================================================
+
+# Example 1: Accessing an outer function's variable
+
+def outer_function():
+    message = "Hello, John Smith"
+
+    def inner_function():
+        print(message)
+
+    inner_function()
+
+
+outer_function()
+
+# Output:
+# Hello, John Smith
+
+
+# Example 2: Accessing multiple outer variables
+
+def calculate_total():
+    price = 1000
+    tax = 100
+
+    def calculate():
+        return price + tax
+
+    total = calculate()
+    print("Total:", total)
+
+
+calculate_total()
+
+# Output:
+# Total: 1100
+
+
+# Example 3: Inner function with its own local variable
+
+def outer_function():
+    message = "Hello from outer function"
+
+    def inner_function():
+        greeting = "Hello from inner function"
+        print(greeting)
+        print(message)
+
+    inner_function()
+
+
+outer_function()
+
+# Output:
+# Hello from inner function
+# Hello from outer function
+
+
+# Example 4: Same variable name in both functions
+
+def outer_function():
+    message = "Outer message"
+
+    def inner_function():
+        message = "Inner message"
+        print(message)
+
+    inner_function()
+    print(message)
+
+
+outer_function()
+
+# Output:
+# Inner message
+# Outer message
+
+
+# Example 5: Practice - Local scope in nested functions
+
+def outer():
+    x = 10
+
+    def inner():
+        x = 20
+        print(x)
+
+    inner()
+    print(x)
+
+
+outer()
+
+# Output:
+# 20
+# 10
 
 
 # ============================================================
