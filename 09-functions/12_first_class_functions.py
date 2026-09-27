@@ -79,6 +79,18 @@ display(demo)
 # Hello Mr Smith
 
 
+# Example :
+
+def bonus ():
+    bon = 1500
+    return bon
+def salary (b):
+    sal = 45000
+    total = b() + sal
+    print(total)
+
+salary(bonus)
+
 # ------------------------------------------------------------
 # Example 2: Passing another function that takes no arguments
 # ------------------------------------------------------------
