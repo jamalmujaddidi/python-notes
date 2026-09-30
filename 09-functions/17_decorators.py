@@ -391,6 +391,77 @@ greet_closure()
 # unrelated functions defined outside their scope.
 
 
+"""
+Topic 17.4 — Decorators with Arguments and Return Values
+==========================================================
+"""
+
+# ============================================================
+# Example 1 — Decorator with Function Arguments and Return Value
+# ============================================================
+
+def my_decorator(func):
+
+    def wrapper(a, b):
+        print("Function started")
+
+        result = func(a, b)
+
+        print("Function finished")
+
+        return result
+
+    return wrapper
+
+
+@my_decorator
+def addition(a, b):
+    return a + b
+
+
+result = addition(10, 20)
+
+print("Result:", result)
+
+# Output:
+# Function started
+# Function finished
+# Result: 30
+
+
+# ============================================================
+# Example 2 — Decorator with a Function Argument and Return Value
+# ============================================================
+
+def square_decorator(func):
+
+    def wrapper(number):
+        print("Calculating the square...")
+
+        result = func(number)
+
+        print("Calculation completed.")
+
+        return result
+
+    return wrapper
+
+
+@square_decorator
+def square(number):
+    return number ** 2
+
+
+result = square(5)
+
+print("Result:", result)
+
+# Output:
+# Calculating the square...
+# Calculation completed.
+# Result: 25
+
+
 # ============================================================
 # IMPORTANT CONCEPTS AND SUMMARY
 # ============================================================
