@@ -463,6 +463,37 @@ print("Result:", result)
 
 
 # ============================================================
+# Example 3 — Decorator with a Function Argument and Return Value
+# ============================================================
+
+def calculator_decorator(func):
+    def wrapper(a, b):
+        print("Calculation started")
+
+        result = func(a, b)
+
+        print("Calculation completed")
+        return result
+
+    return wrapper
+
+
+@calculator_decorator
+def multiply(a, b):
+    return a * b
+
+
+result = multiply(6, 7)
+
+print("Result:", result)
+
+
+# Output:
+# Calculation started
+# Calculation completed
+# Result: 42
+
+# ============================================================
 # IMPORTANT CONCEPTS AND SUMMARY
 # ============================================================
 
