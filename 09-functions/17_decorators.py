@@ -492,6 +492,51 @@ print("Result:", result)
 # Calculation started
 # Calculation completed
 # Result: 42
+
+
+#=========================================================
+# Example: Decorator with *args, **kwargs and Return Value
+#=========================================================
+def log_decorator(func):
+    def wrapper(*args, **kwargs):
+        print("Function started")
+
+        print("Positional arguments:", args)
+        print("Keyword arguments:", kwargs)
+
+        result = func(*args, **kwargs)
+        print (result)
+
+        print("Function completed")
+        return result
+
+    return wrapper
+
+
+@log_decorator
+def create_message(name, age, city):
+    return f"{name} is {age} years old and lives in {city}."
+
+
+message = create_message(
+    "John Smith",
+    age=30,
+    city="Kabul"
+)
+
+
+
+
+# Output:
+# Function started
+# Positional arguments: ('John Smith',)
+# Keyword arguments: {'age': 30, 'city': 'Kabul'}
+# Function completed
+# Message: John Smith is 30 years old and lives in Kabul.
+
+
+
+
 #======================================================================
 # Example: Parameterized Decorator with Arguments and Return Value
 #======================================================================
