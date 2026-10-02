@@ -497,6 +497,8 @@ print("Result:", result)
 #=========================================================
 # Example: Decorator with *args, **kwargs and Return Value
 #=========================================================
+
+
 def log_decorator(func):
     def wrapper(*args, **kwargs):
         print("Function started")
@@ -532,7 +534,7 @@ message = create_message(
 # Positional arguments: ('John Smith',)
 # Keyword arguments: {'age': 30, 'city': 'Kabul'}
 # Function completed
-# Message: John Smith is 30 years old and lives in Kabul.
+
 
 
 
