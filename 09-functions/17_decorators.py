@@ -492,6 +492,32 @@ print("Result:", result)
 # Calculation started
 # Calculation completed
 # Result: 42
+#======================================================================
+# Example: Parameterized Decorator with Arguments and Return Value
+#======================================================================
+
+def message_decorator(message):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            print(message)
+
+            result = func(*args, **kwargs)
+            print(f"Final result is {result}")
+
+            print("Function completed")
+            return result
+
+        return wrapper
+
+    return decorator
+
+
+@message_decorator("Starting calculation...")
+def divide(a, b):
+    return a / b
+
+
+result = divide(700, 7)
 
 # ============================================================
 # IMPORTANT CONCEPTS AND SUMMARY
