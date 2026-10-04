@@ -139,3 +139,31 @@ def print_characters (text):
     print_characters(text[1:])
 
 print_characters("Python")
+
+# Output:
+# P
+# y
+# t
+# h
+# o
+# n
+
+# Example of recursive functions with sequence
+
+def print_items(items):
+
+    if items == []:
+        return
+
+    print(items[0])
+
+    print_items(items[1:])
+
+
+print_items(["Apple", "Banana", "Orange", "Mango"])
+
+# Output:
+# Apple
+# Banana
+# Orange
+# Mango
