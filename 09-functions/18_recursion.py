@@ -125,3 +125,17 @@ print("Result:", result)
 
 # output
 # Result: 15
+
+
+# Example of recursive function with string
+
+def print_characters (text):
+
+    if text == "":
+        return
+
+    print(text[0])
+
+    print_characters(text[1:])
+
+print_characters("Python")
