@@ -91,3 +91,37 @@ countdown(5)
 # When number becomes 0, the function stops making
 # additional recursive calls.
 #
+#another example
+
+def factorial(number):
+
+    if number == 1:
+        return 1
+
+    return number * factorial(number - 1)
+
+
+result = factorial(5)
+
+print("Factorial:", result)
+
+
+#output
+# Factorial: 120
+
+# Example
+
+def sum_numbers(number):
+
+    if number == 1:
+        return 1
+
+    return number + sum_numbers(number - 1)
+
+
+result = sum_numbers(5)
+
+print("Result:", result)
+
+# output
+# Result: 15
