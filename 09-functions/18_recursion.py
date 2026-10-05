@@ -167,3 +167,41 @@ print_items(["Apple", "Banana", "Orange", "Mango"])
 # Banana
 # Orange
 # Mango
+
+
+
+# Same Problem Using Recursion and Iteration
+# Let's calculate the sum from 1 to 5.
+# Iterative approach
+def sum_numbers(number):
+    total = 0
+
+    for value in range(1, number + 1):
+        total += value
+
+    return total
+
+result = sum_numbers(5)
+print("Result:", result)
+
+
+
+
+# ________________________________________
+# Output:
+# Result: 15
+# The loop performs:
+
+
+# Recursive approach
+def sum_numbers(number):
+    if number == 1:
+        return 1
+
+    return number + sum_numbers(number - 1)
+
+result = sum_numbers(5)
+print("Result:", result)
+# ________________________________________
+# Output:
+# Result: 15
