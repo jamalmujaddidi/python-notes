@@ -47,3 +47,14 @@ print(next(numbers))
 # 2
 # 3
 
+# another usful example
+def test ():
+    number = 10
+    yield number
+
+    number += 5
+    yield number
+    return
+generator = test()
+print(next(generator))
+print (next(generator))
