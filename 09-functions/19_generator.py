@@ -74,3 +74,47 @@ def even(numbers):
 result = even(range(1,11))
 print(next(result))
 print(next(result))
+
+# Example to fine cube of a number using generator function
+def cube (numbers):
+    for number in numbers:
+
+        yield number ** 3
+
+for number in cube([1,2,3,4,5,]):
+    print(number)
+
+
+def name_starts_with_a(names):
+    for name in names:
+        if name.startswith("a".upper()):
+            yield name
+
+names = ["Ahmad " , "Mahmood", "Amir", "Basir" ,"Akmal"]
+
+# for name in name_starts_with_a(names):
+#     print(name)
+
+final = name_starts_with_a(names)
+print(final)
+print(next(final))
+print(next(final))
+
+
+
+# while loop with generator
+
+def creator():
+    i = 1
+    while i <= 200:
+        yield i
+        i+=1
+
+x = creator()
+print(creator)
+print (creator())
+print (next(x))
+print (next(x))
+print (next(x))
+print (next(x))
+print (list(x))
