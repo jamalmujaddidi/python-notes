@@ -7,6 +7,8 @@ on demand,instead of creating and storing all the values in memory at once.
 A function containing the yield keyword is called a generator function.
  When called, it returns a generator object, which is an iterator.
 '''
+from unittest import result
+
 
 # simple Example
 
@@ -58,3 +60,17 @@ def test ():
 generator = test()
 print(next(generator))
 print (next(generator))
+
+
+# generator example with for loop
+def even(numbers):
+    for num in numbers:
+        if num %2 == 0:
+            yield num
+
+# for num in even(range(1,11)):
+#         print (num)
+
+result = even(range(1,11))
+print(next(result))
+print(next(result))
