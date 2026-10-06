@@ -118,3 +118,38 @@ print (next(x))
 print (next(x))
 print (next(x))
 print (list(x))
+
+
+
+def odd_number(numbers):
+    for number in numbers:
+        if number % 2 !=0:
+            yield number
+
+generator = odd_number(range(1,21))
+while True:
+    try:
+        value = next(generator)
+        print(value)
+
+    except StopIteration:
+        break
+
+
+even_numbers =(number for number in range(1,11) if number % 2 == 0)
+
+for number in even_numbers:
+    print(number)
+
+
+names = ["John Smith", "Alice", "Andrew", "Michael", "Anna"]
+
+long_names =(name for name in names if len(name)> 5)
+
+for name in long_names:
+    print(name )
+
+name_starts_with = (name for name in names if name.startswith("A"))
+
+for name in name_starts_with:
+    print(name)
