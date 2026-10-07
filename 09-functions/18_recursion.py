@@ -781,6 +781,32 @@ print("Exercise 10:", result)
 # Exercise 10: 8
 
 
+
+# Example 11
+# Find the smallest number in a list using recursion
+
+def find_min(numbers):
+    if len(numbers) == 1:
+        return numbers[0]
+
+    minimum = find_min(numbers[1:])
+
+    if numbers[0] < minimum:
+        return numbers[0]
+
+    return minimum
+
+
+numbers = [10, 25, 7, 42, 18]
+
+result = find_min(numbers)
+
+print(result)
+
+# Output:
+# 7
+
+
 # ============================================================
 # 18.11 SUMMARY
 # ============================================================
