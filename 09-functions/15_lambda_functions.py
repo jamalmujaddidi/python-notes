@@ -370,3 +370,15 @@ result = sorted(numbers, key=lambda x: abs(x), reverse=True)
 
 print(result)
 # Output: [-10, 8, 5, -3, -1]
+
+
+# Example 5:
+
+numbers = [10, 25, 7, 42, 18]
+
+greatest = max(numbers, key=lambda number: number)
+
+print(greatest)
+
+# Output:
+# 42
