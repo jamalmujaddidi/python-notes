@@ -994,30 +994,29 @@ view_profile(True)
 # 17.5.5 PRACTICAL EXERCISE — CREATE YOUR OWN DECORATOR
 # ============================================================
 
-"""
-Exercise:
 
-Create a decorator named uppercase_decorator.
+# Exercise:
 
-Requirements:
 
-1. The decorator should receive a function.
-2. The wrapper should accept *args and **kwargs.
-3. The original function should return a string.
-4. The decorator should convert the returned string to
-   uppercase.
-5. The wrapper should return the modified string.
+def uppercase_decorator(function):
+    def wrapper(*args, **kwargs):
+        result = function(*args, **kwargs)
+        return result.upper()
 
-Expected usage:
+    return wrapper
+
 
 @uppercase_decorator
 def get_message():
     return "hello, John Smith!"
 
-Expected output:
 
-HELLO, JOHN SMITH!
-"""
+message = get_message()
+print(message)
+
+# Output:
+# HELLO, JOHN SMITH!
+
 
 
 # ============================================================
