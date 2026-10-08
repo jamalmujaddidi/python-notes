@@ -1048,6 +1048,28 @@ for number in cube_of_numbers:
 # 1000
 
 
+# Exercise 4 solution
+
+
+def find_smallest(numbers):
+    smallest = numbers[0]
+
+    for number in numbers:
+        if number < smallest:
+            smallest = number
+
+    yield smallest
+
+
+numbers = [10, 25, 7, 42, 18, 3, 15]
+
+for value in find_smallest(numbers):
+    print(value)
+
+# Output:
+# 3
+
+
 # ===========================================================
 # 19.9 SUMMARY
 # ===========================================================
