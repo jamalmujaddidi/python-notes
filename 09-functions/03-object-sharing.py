@@ -60,3 +60,48 @@ modify(numbers)
 
 print("Value of numbers after function call:", numbers)
 print("ID of numbers after function call:", id(numbers))
+
+
+
+# ============================================================
+# Practical examples
+# ============================================================
+
+
+def update_cart(cart, item, quantity):
+    cart[item] = quantity
+
+
+shopping_cart = {
+    "Keyboard": 1,
+    "Mouse": 2
+}
+
+update_cart(shopping_cart, "Monitor", 1)
+
+print(shopping_cart)
+
+# Output:
+# {'Keyboard': 1, 'Mouse': 2, 'Monitor': 1}
+
+
+
+# Example
+
+
+def update_marks(student, new_marks):
+    student["marks"].append(new_marks)
+
+
+student = {
+    "name": "John Smith",
+    "marks": [85, 90]
+}
+
+update_marks(student, 95)
+
+print(student)
+
+# Output:
+# {'name': 'John Smith', 'marks': [85, 90, 95]}
+
