@@ -184,7 +184,30 @@ samsung.display_info()
 
 
 
+# example
 
+
+class Mobile ():
+
+    def info (self, brand , model , prince):
+        self.brand = brand
+        self.model = model
+        self.price = prince
+
+    def display_info(self):
+        print (f"This is {self.brand}")
+        print (f"Its condition is {self.model}")
+        print (f"its cost is {self.price}")
+
+nokia = Mobile()
+nokia.info("Nokia","new" , "150$")
+print (nokia.brand)
+print(nokia.model)
+print (nokia.price)
+
+print ()
+
+nokia.display_info()
 
 # ============================================================
 # Summary
