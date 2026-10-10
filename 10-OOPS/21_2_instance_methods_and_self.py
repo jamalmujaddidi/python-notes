@@ -156,6 +156,35 @@ example1.show()
 # Output:
 # Hello!
 
+# ============================================================
+# Example
+# ============================================================
+class Mobile:
+    def __init__(self, brand, model , price):
+        self.brand = brand
+        self.model = model
+        self.price = price
+
+    def display_info(self):
+        print (f"This is {self.brand}")
+        print(f"Its model is {self.model}")
+        print(f"{self.brand} {self.model} will cost you {self.price}")
+
+iphone = Mobile("iphne" , "18 Pro Max", "1500$")
+print (iphone.brand)
+print (iphone.model)
+print(iphone.price)
+iphone.display_info()
+print ("====================================")
+samsung = Mobile ("Samsung" , "S24" ,"1000$")
+print(samsung.brand)
+print(samsung.model)
+print(samsung.price)
+samsung.display_info()
+
+
+
+
 
 # ============================================================
 # Summary
