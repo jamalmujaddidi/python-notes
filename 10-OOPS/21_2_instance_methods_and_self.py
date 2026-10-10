@@ -209,6 +209,61 @@ print ()
 
 nokia.display_info()
 
+# example
+
+class Marks():
+    mathematics = 100
+    physics = 85
+    english = 70
+    print(mathematics)
+    print(physics)
+    print(english)
+
+# we can call the class to see the attributes of the class
+Marks()
+print ("=============================================")
+# or we can simply print the values using class name
+print(Marks.mathematics)
+print(Marks.physics)
+print(Marks.english)
+
+# output
+# 100
+# 85
+# 70
+# =============================================
+# 100
+# 85
+# 70
+
+# example
+
+class Student():
+    def __init__(self, name , age):
+        self.name = name
+        self.age = age
+
+    def desplay_info(self):
+        print(f"His name is {self.name} and he is {self.age} years old")
+
+
+student1 = Student("John Smith", 24)
+student1.desplay_info()
+print(student1.name)
+print("===========================================")
+student2 = Student ("Alex", 22)
+student2.desplay_info()
+print(student2.age)
+
+
+# output:
+# His name is John Smith and he is 24 years old
+# John Smith
+# ===========================================
+# His name is Alex and he is 22 years old
+# 22
+
+
 # ============================================================
 # Summary
 # ============================================================
