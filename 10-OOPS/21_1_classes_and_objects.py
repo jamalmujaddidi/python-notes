@@ -73,3 +73,44 @@ print(isinstance(car1, Car))
 #
 # In a simple model:
 # Object = data/state (attributes) + behavior (methods)
+
+
+
+# ============================================================
+# 21.1.1 Class Attributes
+# ============================================================
+
+# Class attributes are defined in the class body, outside
+# methods. They belong to the class and can be accessed
+# through the class name or through its instances.
+
+
+class Marks:
+    mathematics = 100
+    physics = 85
+    english = 70
+
+
+# Accessing class attributes through the class name
+print(Marks.mathematics)
+print(Marks.physics)
+print(Marks.english)
+
+print("=============================================")
+
+# Creating an instance
+marks1 = Marks()
+
+# Accessing class attributes through the instance
+print(marks1.mathematics)
+print(marks1.physics)
+print(marks1.english)
+
+# Output:
+# 100
+# 85
+# 70
+# =============================================
+# 100
+# 85
+# 70
