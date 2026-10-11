@@ -114,3 +114,45 @@ print(marks1.english)
 # 100
 # 85
 # 70
+
+
+
+# ============================================================
+# 21.1.2 Instance Attributes
+# ============================================================
+
+# Instance attributes belong to individual objects.
+# Each object has its own instance attributes, and their
+# values can be the same or different from other objects.
+#
+# They are commonly initialized inside __init__() using self.
+
+
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display_info(self):
+        print(f"His name is {self.name} and he is {self.age} years old.")
+
+
+student1 = Student("John Smith", 24)
+student1.display_info()
+print(student1.name)
+
+print("===========================================")
+
+student2 = Student("Alex", 22)
+student2.display_info()
+print(student2.age)
+
+# Output:
+# His name is John Smith and he is 24 years old.
+# John Smith
+# ===========================================
+# His name is Alex and he is 22 years old.
+# 22
+
+
+
