@@ -1,6 +1,7 @@
 # ============================================================
 # Topic 21 - Object-Oriented Programming (OOP)
 # ============================================================
+from time import time
 
 
 # ============================================================
@@ -199,3 +200,23 @@ teacher.instance_method()
 # 7500$
 # He is our best teacher, and his position is Head Master.
 # As he holds the position of Head Master, his salary is 7500$.
+
+
+'''
+class method
+class method is used to use, modify or handle class attributes
+'''
+class Employee ():
+
+    company = "Google"
+    time = "8:30 to 4:30"
+
+    @classmethod
+    def company_info(cls):
+        print (f"company name is {cls.company}")
+        print (f"company timing is {cls.time}")
+
+# emp = Employee()
+# emp.company_info()
+Employee.company_info()
+
