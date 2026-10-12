@@ -156,3 +156,46 @@ print(student2.age)
 
 
 
+# ============================================================
+# 21.1.3 Types of Methods in classes and objects:
+# ============================================================
+'''
+A method is a function defined inside a class that represents or performs behaviour(actions) 
+associated with the class or its objects.
+
+•	It is similar to a function, but it is associated with a class or an object.
+•	It operates on the data (attributes or properties) stored within an object.
+•	It helps reuse code by defining a behaviour once and using it across multiple objects
+
+We have three types of methods in python with respect to classes and objects:
+1)	Instance methods
+ 
+An instance method is a function defined inside a class that operates on a specific object 
+(instance) of that class.
+Instance methods commonly use self as their first parameter. When called through an object, 
+Python automatically passes that object as the first argument.
+
+'''
+# Example
+
+class Teacher:
+    def __init__(self, position, salary):
+        self.position = position
+        self.salary = salary
+
+    def instance_method(self):
+        print(f"He is our best teacher, and his position is {self.position}.")
+        print(f"As he holds the position of {self.position}, his salary is {self.salary}.")
+
+teacher = Teacher("Head Master", "7500$")
+
+print(teacher.position)
+print(teacher.salary)
+teacher.instance_method()
+
+
+# output:
+# Head Master
+# 7500$
+# He is our best teacher, and his position is Head Master.
+# As he holds the position of Head Master, his salary is 7500$.
