@@ -206,17 +206,47 @@ teacher.instance_method()
 class method
 class method is used to use, modify or handle class attributes
 '''
-class Employee ():
+# class Employee ():
+#
+#     company = "Google"
+#     time = "8:30 to 4:30"
+#
+#     @classmethod
+#     def company_info(cls):
+#         print (f"company name is {cls.company}")
+#         print (f"company timing is {cls.time}")
+#
+# # emp = Employee()
+# # emp.company_info()
+# Employee.company_info()
 
-    company = "Google"
-    time = "8:30 to 4:30"
+
+
+'''Alternative constructor
+'''
+class Product:
+
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
 
     @classmethod
-    def company_info(cls):
-        print (f"company name is {cls.company}")
-        print (f"company timing is {cls.time}")
+    def from_string(cls, product_data):
+        name, price = product_data.split(",")
+        return cls(name, float(price))
+# object is created here inside the class
 
-# emp = Employee()
-# emp.company_info()
-Employee.company_info()
+# Regular constructor
+product1 = Product("Mouse", 25)
 
+# Alternative constructor
+product2 = Product.from_string("Keyboard,50")
+
+print(product1.name, product1.price)
+print(product2.name, product2.price)
+
+
+
+# output:
+# Mouse 25
+# Keyboard 50.0
