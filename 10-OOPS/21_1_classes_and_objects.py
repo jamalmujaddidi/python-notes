@@ -421,7 +421,7 @@ an alternative constructor may be unnecessary.
 
 
 # ============================================================
-# Instance Method in Python
+# 21.1.4 Instance Method in Python
 # ============================================================
 
 '''
@@ -458,3 +458,102 @@ teacher.instance_method()
 # 7500$
 # He is our best teacher and his position is Head Master.
 # As he has Head Master position, His salary is 7500$.
+
+
+
+
+
+# ======================================
+# Topic 21.1.5: Static Methods in Python
+# ======================================
+"""
+A static method is a method defined inside a class using the
+@staticmethod decorator.
+
+A static method does not receive an instance (self) or the class (cls)
+automatically as its first argument.
+
+It is useful when a function is logically related to a class but does
+not need instance-specific or class-specific data to perform its task.
+
+The @staticmethod decorator is a built-in Python decorator.
+"""
+
+
+# ============================================================
+# 1. Defining a Static Method
+# ============================================================
+
+class Product:
+
+    @staticmethod
+    def is_valid_price(price):
+        """Check whether a price is greater than zero."""
+        return price > 0
+
+
+# Calling the static method using the class name
+print(Product.is_valid_price(50))
+print(Product.is_valid_price(-10))
+
+# Output:
+# True
+# False
+
+
+# ============================================================
+# 2. Calling a Static Method Through an Instance
+# ============================================================
+
+class Product:
+
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    @staticmethod
+    def is_valid_price(price):
+        """Check whether a given price is valid."""
+        return price > 0
+
+
+product1 = Product("Keyboard", 50)
+
+# Calling the static method through an instance
+print(product1.is_valid_price(100))
+print(product1.is_valid_price(-5))
+
+# Output:
+# True
+# False
+
+# Note:
+# Python does not automatically pass product1 to the static method.
+# The argument 100 is passed explicitly; the method does not
+# automatically use product1.price.
+
+
+# ============================================================
+# 3. Accessing Class Attributes in a Static Method
+# ============================================================
+
+class Product:
+
+    category = "Electronics"  # Class attribute
+
+    @staticmethod
+    def display_category():
+        print(Product.category)
+
+
+Product.display_category()
+
+# Output:
+# Electronics
+
+# Note:
+# A static method can access a class attribute by explicitly
+# referencing it through the class name: Product.category.
+#
+# Unlike a class method, it does not receive the class
+# automatically through a cls parameter.
