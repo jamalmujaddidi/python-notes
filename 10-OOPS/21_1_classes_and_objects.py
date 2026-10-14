@@ -557,3 +557,131 @@ Product.display_category()
 #
 # Unlike a class method, it does not receive the class
 # automatically through a cls parameter.
+
+
+
+# ============================================================
+# 4. A Practical Example: Price Validation
+# ============================================================
+
+class Product:
+
+    category = "Electronics"
+
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def display_product(self):
+        """Display the product's individual information."""
+        print(f"Product: {self.name}")
+        print(f"Price: ${self.price}")
+
+    @staticmethod
+    def is_valid_price(price):
+        """Return True if the supplied price is positive."""
+        return price > 0
+
+
+product1 = Product("Keyboard", 50)
+
+product1.display_product()
+
+print(Product.is_valid_price(50))
+print(Product.is_valid_price(-10))
+
+# Output:
+# Product: Keyboard
+# Price: $50
+# True
+# False
+
+
+# ============================================================
+# 5. Static Method vs Instance Method vs Class Method
+# ============================================================
+
+class Example:
+
+    category = "General"
+
+    def instance_method(self):
+        """An instance method receives self automatically."""
+        return self.category
+
+    @classmethod
+    def class_method(cls):
+        """A class method receives cls automatically."""
+        return cls.category
+
+    @staticmethod
+    def static_method():
+        """A static method receives neither self nor cls."""
+        return Example.category
+
+
+example1 = Example()
+
+print(example1.instance_method())
+print(Example.class_method())
+print(Example.static_method())
+
+# Output:
+# General
+# General
+# General
+
+
+# ============================================================
+# 6. When to Use Static Methods
+# ============================================================
+
+# Static methods are useful for:
+#
+# 1. Validation
+#    Example: checking whether a price is positive.
+#
+# 2. Calculations
+#    Example: calculating a percentage or converting units.
+#
+# 3. Formatting
+#    Example: formatting a product code.
+#
+# 4. Utility operations logically related to a class
+#    that do not require instance or class state.
+
+
+# ============================================================
+# 7. When NOT to Use Static Methods
+# ============================================================
+
+# Use an instance method when the operation needs instance data
+# through self.
+#
+# Use a class method when the operation needs the class through cls,
+# such as an alternative constructor.
+#
+# Use a regular function outside the class when the operation
+# is not logically related to the class.
+
+
+# ============================================================
+# 8. Summary
+# ============================================================
+
+# 1. Use @staticmethod to define a static method.
+#
+# 2. A static method receives neither self nor cls automatically.
+#
+# 3. It can accept ordinary arguments and return values.
+#
+# 4. It can be called through the class name or an instance.
+#
+# 5. It can access class attributes explicitly using the class name,
+#    for example, Product.category.
+#
+# 6. Use it for related utility operations that do not need
+#    instance-specific or class-specific state.
+#
+# 7. If an operation needs self or cls automatically, consider
+#    an instance method or class method instead.
