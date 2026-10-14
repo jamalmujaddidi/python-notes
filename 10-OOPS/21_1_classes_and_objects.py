@@ -162,17 +162,13 @@ print(student2.age)
 # ============================================================
 
 """
-Topics covered:
-1. Definition of a Class Method
-2. Accessing and Modifying Class Attributes
-3. Calling a Class Method Through the Class and an Instance
-4. Class Method vs. Instance Method
-5. Alternative Constructors
-6. When to Use Alternative Constructors
+We have three types of methods with respect to 
+classes and objects:
 """
 
 
 # ============================================================
+# Class method
 # 1. Definition of a Class Method
 # ============================================================
 
@@ -423,3 +419,42 @@ an alternative constructor may be unnecessary.
 - The assignment statement stores a reference to that instance.
 """
 
+
+# ============================================================
+# Instance Method in Python
+# ============================================================
+
+'''
+	Instance methods
+Instance Methods works directly with an individual object's data 
+and can access its unique variables.
+Or 
+An instance method is a function defined inside a class that operates 
+on a specific object (instance) of that class.
+
+Instance methods commonly use self as their first parameter. When 
+called through an object, Python automatically passes that object as the first argument.
+'''
+
+class Teacher:
+    def __init__ (self, position, salary):
+        self.position = position
+        self.salary = salary
+
+    def instance_method(self):
+        print (f"He is our best teacher, and his position is {self.position}.")
+        print (f"As he holds the position of {self.position}, his salary is {self.salary}.")
+
+teacher = Teacher("Head Master", "7500$")
+
+print(teacher.position)
+print(teacher.salary)
+teacher.instance_method()
+
+
+# Output
+
+# Head Master
+# 7500$
+# He is our best teacher and his position is Head Master.
+# As he has Head Master position, His salary is 7500$.
