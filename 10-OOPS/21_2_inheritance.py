@@ -331,3 +331,33 @@ student5.display_info()
 #
 # 8. Sibling classes do not automatically inherit methods
 #    from each other.
+
+
+# another Example--> -->
+
+class Person:
+    def introduce(self):
+        print("I am a person.")
+
+
+class Student(Person):
+    def introduce(self):
+        super().introduce()
+        print("I am also a student.")
+
+
+student1 = Student()
+student1.introduce()
+
+# Output:
+# I am a person.
+# I am also a student.
+
+'''
+Here, Student overrides the inherited introduce() method but uses super().
+introduce() to call the parent implementation before executing its own 
+additional statement.
+This is useful when a child class wants to reuse the parent's behavior 
+and extend it rather than replace it completely.
+
+'''
