@@ -333,31 +333,331 @@ student5.display_info()
 #    from each other.
 
 
-# another Example--> -->
+
+"""
+Topic 21.2.6: The super() Function in Python
+============================================
+
+
+super() is a built-in Python function that provides a proxy
+for accessing methods in the next class in the Method
+Resolution Order (MRO).
+
+In simple inheritance examples, this often means calling
+a method defined in the parent class.
+
+However, super() does not always call the direct parent.
+Its behavior follows the MRO.
+"""
+
+
+# ============================================================
+# 21.2.6.0 - Introduction to super()
+# ============================================================
+
+# super() is commonly used in inheritance to:
+#
+# 1. Call an inherited initializer.
+# 2. Reuse a method defined in another class in the MRO.
+# 3. Avoid repeating code from a parent class.
+# 4. Support cooperative multiple inheritance.
+#
+# General syntax:
+#
+# super().method_name(arguments)
+
+
+# ============================================================
+# 21.2.6.1 - Calling a Parent Initializer with super()
+# ============================================================
 
 class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+
+class Student(Person):
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)
+        self.student_id = student_id
+
+
+student1 = Student("John Smith", 24, "S101")
+
+print(student1.name)
+print(student1.age)
+print(student1.student_id)
+
+# Output:
+# John Smith
+# 24
+# S101
+
+# Explanation:
+# 1. Person.__init__() initializes name and age.
+# 2. Student.__init__() calls super().__init__(name, age).
+# 3. The parent's initializer initializes those attributes.
+# 4. Execution returns to Student.__init__().
+# 5. Student.__init__() then initializes student_id.
+#
+# super() does not create a separate Person instance.
+# The attributes are initialized on the existing Student instance.
+#
+# Python automatically supplies self when calling the bound
+# initializer, so we do not write:
+#
+# super().__init__(self, name, age)
+
+
+# ============================================================
+# 21.2.6.2 - Calling Parent Methods with super()
+# ============================================================
+
+class PersonIntroduction:
     def introduce(self):
         print("I am a person.")
 
 
-class Student(Person):
+class StudentIntroduction(PersonIntroduction):
     def introduce(self):
         super().introduce()
         print("I am also a student.")
 
 
-student1 = Student()
-student1.introduce()
+student2 = StudentIntroduction()
+student2.introduce()
 
 # Output:
 # I am a person.
 # I am also a student.
 
-'''
-Here, Student overrides the inherited introduce() method but uses super().
-introduce() to call the parent implementation before executing its own 
-additional statement.
-This is useful when a child class wants to reuse the parent's behavior 
-and extend it rather than replace it completely.
+# Explanation:
+# StudentIntroduction overrides introduce().
+#
+# Inside the overriding method, super().introduce() calls
+# the next implementation in the MRO.
+#
+# The child then continues executing its own code.
+#
+# This allows the child to reuse and extend existing behavior
+# instead of replacing it completely.
 
-'''
+
+# ============================================================
+# 21.2.6.3 - Understanding Method Resolution Order (MRO)
+# ============================================================
+
+# Method Resolution Order (MRO) is the order in which Python
+# searches classes for an attribute or method.
+
+
+class MROAnimal:
+    def speak(self):
+        print("Animal makes a sound.")
+
+
+class MRODog(MROAnimal):
+    pass
+
+
+dog1 = MRODog()
+dog1.speak()
+
+# Output:
+# Animal makes a sound.
+
+# Explanation:
+# Python first searches MRODog for speak().
+# MRODog does not define speak(), so Python searches MROAnimal.
+# It finds and executes the inherited method.
+
+
+# Display the MRO as class names.
+
+print([cls.__name__ for cls in MRODog.mro()])
+
+# Output:
+# ['MRODog', 'MROAnimal', 'object']
+
+# Explanation:
+# Python searches in this order:
+#
+# 1. MRODog
+# 2. MROAnimal
+# 3. object
+#
+# object is the common base class at the root of the
+# hierarchy for ordinary Python classes.
+
+
+# ============================================================
+# 21.2.6.4 - mro() Method vs __mro__ Attribute
+# ============================================================
+
+# mro() is a method that returns a list of classes.
+# __mro__ is an attribute that contains a tuple of classes.
+
+
+print([cls.__name__ for cls in MRODog.mro()])
+print([cls.__name__ for cls in MRODog.__mro__])
+
+# Output:
+# ['MRODog', 'MROAnimal', 'object']
+# ['MRODog', 'MROAnimal', 'object']
+
+
+# Check their types.
+
+print(type(MRODog.mro()))
+print(type(MRODog.__mro__))
+
+# Output:
+# <class 'list'>
+# <class 'tuple'>
+
+# Differences:
+#
+# mro() method:
+# - Called with parentheses: MRODog.mro()
+# - Returns a list of classes.
+#
+# __mro__ attribute:
+# - Accessed without parentheses: MRODog.__mro__
+# - Contains a tuple of classes.
+#
+# Both expose the class's MRO.
+# A metaclass can customize the order calculated by overriding
+# mro() during class creation.
+
+
+# ============================================================
+# 21.2.6.5 - super() in Multiple Inheritance
+# ============================================================
+
+# Multiple inheritance occurs when a class inherits from
+# more than one parent class.
+
+
+class FirstParent:
+    def show(self):
+        print("Method from FirstParent")
+
+
+class SecondParent:
+    def show(self):
+        print("Method from SecondParent")
+
+
+class CombinedChild(FirstParent, SecondParent):
+    pass
+
+
+combined1 = CombinedChild()
+combined1.show()
+
+# Output:
+# Method from FirstParent
+
+print([cls.__name__ for cls in CombinedChild.mro()])
+
+# Output:
+# ['CombinedChild', 'FirstParent', 'SecondParent', 'object']
+
+# Explanation:
+# Python checks CombinedChild first.
+# Since it does not define show(), Python checks FirstParent.
+# It finds show() there and stops searching.
+# SecondParent.show() is not called by this example.
+
+
+# ------------------------------------------------------------
+# super() follows the MRO, not simply the direct parent
+# ------------------------------------------------------------
+
+class Root:
+    def show(self):
+        print("Root")
+
+
+class Left(Root):
+    def show(self):
+        print("Left")
+        super().show()
+
+
+class Right(Root):
+    def show(self):
+        print("Right")
+        super().show()
+
+
+class Bottom(Left, Right):
+    def show(self):
+        print("Bottom")
+        super().show()
+
+
+bottom1 = Bottom()
+bottom1.show()
+
+# Output:
+# Bottom
+# Left
+# Right
+# Root
+
+
+# Display the method resolution order.
+
+print([cls.__name__ for cls in Bottom.mro()])
+
+# Output:
+# ['Bottom', 'Left', 'Right', 'Root', 'object']
+
+# Explanation:
+# 1. Bottom.show() prints "Bottom".
+# 2. super() in Bottom continues to Left.show().
+# 3. super() in Left continues to Right.show().
+# 4. super() in Right continues to Root.show().
+# 5. Root.show() does not call super(), so the chain ends.
+#
+# Notice:
+# super() inside Left does not simply call Left's direct
+# parent, Root. It continues to the next class in the MRO,
+# which is Right in this inheritance hierarchy.
+#
+# Cooperative methods must call super() when appropriate
+# for the chain to continue.
+
+
+# ============================================================
+# 21.2.6.6 - Summary
+# ============================================================
+
+# 1. super() provides access to methods in the next class
+#    in the Method Resolution Order (MRO).
+#
+# 2. super().__init__(...) is commonly used to call an
+#    inherited initializer without repeating initialization.
+#
+# 3. super() can call methods other than __init__().
+#
+# 4. When a child overrides a method, super() can call the
+#    next implementation and allow the child to extend it.
+#
+# 5. MRO determines the order Python follows when searching
+#    for methods.
+#
+# 6. mro() returns a list of classes.
+#
+# 7. __mro__ provides the MRO as a tuple of classes.
+#
+# 8. In multiple inheritance, super() follows the MRO rather
+#    than always calling a fixed or direct parent.
+#
+# 9. For cooperative multiple inheritance, participating
+#    methods should use super() appropriately and have
+#    compatible method signatures.
+
+
