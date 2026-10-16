@@ -706,3 +706,22 @@ e2.display()
 # Output
 # Role: Employee
 # Role: Manager
+
+
+# another Example:
+class Animal ():
+    def sound (self):
+        print("all animals makes sound")
+
+class Dog(Animal):
+    def sound(self):
+        print ("Dogs always Barks")
+
+class Cat (Animal):
+    def sound(self):
+        print("Cats always do meow meow")
+
+dog = Dog ()
+dog.sound()
+a = Animal()
+a.sound()
