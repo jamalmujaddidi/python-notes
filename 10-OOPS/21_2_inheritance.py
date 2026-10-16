@@ -661,3 +661,48 @@ print([cls.__name__ for cls in Bottom.mro()])
 #    compatible method signatures.
 
 
+# practical Examples
+
+class Animal:
+    def display(self):
+        print("This is an animal")
+
+class Dog(Animal):
+    def display(self):
+        print("This is a dog")
+
+obj = Dog()
+obj.display()
+
+# Output
+# This is a dog
+
+
+
+
+# practical 2
+
+
+class Employee:
+    def __init__(self):
+        self.role = "Employee"
+
+    def display(self):
+        print("Role:", self.role)
+
+class Manager(Employee):
+    def __init__(self):
+        super().__init__()
+        self.role = "Manager"
+
+    def display(self):
+        print("Role:", self.role)
+
+e1 = Employee()
+e2 = Manager()
+e1.display()
+e2.display()
+
+# Output
+# Role: Employee
+# Role: Manager
