@@ -661,67 +661,270 @@ print([cls.__name__ for cls in Bottom.mro()])
 #    compatible method signatures.
 
 
-# practical Examples
 
-class Animal:
-    def display(self):
-        print("This is an animal")
+# ============================================================
+# 21.2.7 - Method Overriding in Python
+# ============================================================
 
-class Dog(Animal):
-    def display(self):
-        print("This is a dog")
-
-obj = Dog()
-obj.display()
-
-# Output
-# This is a dog
+# Method overriding occurs when a child class defines a method
+# with the same name as a method defined in its parent class.
+#
+# The child class provides its own implementation of that method.
+#
+# Method overriding allows a child class to customize behavior
+# inherited from its parent class.
 
 
+# ============================================================
+# 21.2.7.1 - Basic Method Overriding
+# ============================================================
+
+class Vehicle:
+    def start(self):
+        print("The vehicle is starting.")
 
 
-# practical 2
+class Car(Vehicle):
+    def start(self):
+        print("The car is starting with a key.")
 
+
+car1 = Car()
+car1.start()
+
+# Output:
+# The car is starting with a key.
+
+# Explanation:
+# Car inherits from Vehicle but defines its own start() method.
+# Python finds Car.start() first and executes it.
+#
+# The method defined in Vehicle is not deleted or replaced
+# globally. It is simply overridden for Car instances.
+
+
+# ============================================================
+# 21.2.7.2 - Different Child Classes Overriding the Same Method
+# ============================================================
+
+class Payment:
+    def pay(self):
+        print("Processing payment.")
+
+
+class CashPayment(Payment):
+    def pay(self):
+        print("Payment made using cash.")
+
+
+class CardPayment(Payment):
+    def pay(self):
+        print("Payment made using a card.")
+
+
+cash = CashPayment()
+card = CardPayment()
+
+cash.pay()
+card.pay()
+
+# Output:
+# Payment made using cash.
+# Payment made using a card.
+
+# Explanation:
+# CashPayment and CardPayment both inherit from Payment.
+#
+# Each child class overrides pay() with its own implementation.
+# The same method name produces different behavior depending
+# on the type of instance used to call it.
+
+
+# ============================================================
+# 21.2.7.3 - Method Overriding and MRO
+# ============================================================
+
+class Device:
+    def info(self):
+        print("This is an electronic device.")
+
+
+class Phone(Device):
+    def info(self):
+        print("This is a mobile phone.")
+
+
+phone1 = Phone()
+phone1.info()
+
+# Output:
+# This is a mobile phone.
+
+print([cls.__name__ for cls in Phone.mro()])
+
+# Output:
+# ['Phone', 'Device', 'object']
+
+# Explanation:
+# MRO stands for Method Resolution Order.
+#
+# Python searches Phone first and finds info() there.
+# Therefore, Device.info() is not executed automatically.
+#
+# MRO determines the order in which Python searches for
+# a method, but it does not automatically execute every
+# implementation of that method.
+
+
+# ============================================================
+# 21.2.7.4 - Calling the Parent Method Using super()
+# ============================================================
 
 class Employee:
-    def __init__(self):
-        self.role = "Employee"
+    def introduce(self):
+        print("I work for the company.")
 
-    def display(self):
-        print("Role:", self.role)
 
 class Manager(Employee):
-    def __init__(self):
-        super().__init__()
-        self.role = "Manager"
-
-    def display(self):
-        print("Role:", self.role)
-
-e1 = Employee()
-e2 = Manager()
-e1.display()
-e2.display()
-
-# Output
-# Role: Employee
-# Role: Manager
+    def introduce(self):
+        super().introduce()
+        print("I also manage a team.")
 
 
-# another Example:
-class Animal ():
-    def sound (self):
-        print("all animals makes sound")
+manager1 = Manager()
+manager1.introduce()
 
-class Dog(Animal):
-    def sound(self):
-        print ("Dogs always Barks")
+# Output:
+# I work for the company.
+# I also manage a team.
 
-class Cat (Animal):
-    def sound(self):
-        print("Cats always do meow meow")
+# Explanation:
+# Manager overrides introduce().
+#
+# super().introduce() calls the next implementation in the MRO.
+# In this example, it calls Employee.introduce().
+#
+# After the parent method finishes, execution returns to
+# Manager.introduce(), which prints its additional message.
+#
+# This allows a child class to reuse and extend the parent's
+# behavior rather than replacing it completely.
 
-dog = Dog ()
-dog.sound()
-a = Animal()
-a.sound()
+
+# ============================================================
+# 21.2.7.5 - Calling a Specific Parent Method Directly
+# ============================================================
+
+class Account:
+    def account_type(self):
+        print("General account.")
+
+
+class SavingsAccount(Account):
+    def account_type(self):
+        print("Savings account.")
+
+
+account1 = SavingsAccount()
+
+account1.account_type()
+Account.account_type(account1)
+
+# Output:
+# Savings account.
+# General account.
+
+# Explanation:
+# account1.account_type() calls the overridden method
+# defined in SavingsAccount.
+#
+# Account.account_type(account1) directly calls the method
+# defined in Account.
+#
+# Because account_type() is an instance method, we explicitly
+# pass account1 as the self argument when calling it through
+# the class.
+#
+# Unlike super(), this direct call explicitly names the
+# implementation to execute.
+
+
+# ============================================================
+# 21.2.7.6 - Calling an Instance Method Through the Class
+# ============================================================
+
+class Speaker:
+    def announce(self):
+        print("The announcement has started.")
+
+
+speaker1 = Speaker()
+
+speaker1.announce()
+Speaker.announce(speaker1)
+
+# Output:
+# The announcement has started.
+# The announcement has started.
+
+# Explanation:
+# When we call speaker1.announce(), Python automatically
+# passes speaker1 as self.
+#
+# When we call Speaker.announce(speaker1), we must provide
+# the instance explicitly.
+#
+# Calling Speaker.announce() without an instance raises
+# TypeError because the required self argument is missing.
+
+
+# ============================================================
+# 21.2.7.7 - Important Rules of Method Overriding
+# ============================================================
+
+# 1. A child class can override an inherited method by
+#    defining a method with the same name.
+#
+# 2. During normal method lookup, Python uses the MRO to
+#    determine which implementation to find.
+#
+# 3. Python does not automatically execute both the parent
+#    and child implementations of an overridden method.
+#
+# 4. Use super().method_name() to call the next implementation
+#    in the MRO when appropriate.
+#
+# 5. A specific parent implementation can also be called
+#    directly using ParentClass.method_name(self).
+#
+# 6. When calling an instance method through its class,
+#    the instance must be passed explicitly.
+#
+# 7. Overriding allows child classes to customize inherited
+#    behavior while keeping a common method name.
+
+
+# ============================================================
+# 21.2.7.8 - Summary
+# ============================================================
+
+# Method overriding allows a child class to provide its own
+# implementation of a method defined in its parent class.
+#
+# Python finds the child's implementation first when normal
+# lookup locates the method in the child class.
+#
+# The parent's implementation remains available.
+#
+# We can use super() to call the next implementation in the
+# MRO, or explicitly call a particular parent's method.
+#
+# Method overriding is useful when a child class needs to
+# customize or extend inherited behavior.
+
+
+
+
+
+
+
