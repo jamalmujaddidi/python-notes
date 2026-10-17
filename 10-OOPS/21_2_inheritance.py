@@ -850,6 +850,34 @@ Account.account_type(account1)
 
 
 # ============================================================
+# Method Overriding with Constructors
+# ============================================================
+
+class Employee ():
+    def __init__(self):
+        self.Employee_role = "Employee"
+
+    def display (self):
+        print(f"his is an {self.Employee_role} here")
+
+class Manager (Employee):
+    def __init__(self):
+        super().__init__()
+        self.role = "Manager"
+
+    def display(self):
+        super().display()
+        print(f"he is the {self.role}")
+
+m = Manager ()
+m.display()
+# ________________________________________
+# Output:
+# his is an Employee here
+# he is the Manager
+
+
+# ============================================================
 # 21.2.7.6 - Calling an Instance Method Through the Class
 # ============================================================
 
