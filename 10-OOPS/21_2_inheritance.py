@@ -953,6 +953,109 @@ Speaker.announce(speaker1)
 
 
 
+# ============================================================
+# 21.2.8 - Types of Inheritance in Python
+# ============================================================
+
+# Inheritance types describe how parent and child classes
+# are connected in a class hierarchy.
+#
+# The five commonly taught types are:
+#
+# 1. Single Inheritance
+# 2. Multiple Inheritance
+# 3. Multilevel Inheritance
+# 4. Hierarchical Inheritance
+# 5. Hybrid Inheritance
+
+
+# ============================================================
+# 21.2.8.1 - Single Inheritance
+# ============================================================
+
+# Single inheritance occurs when a child class inherits
+# directly from one parent class.
+
+
+class Appliance:
+    def switch_on(self):
+        print("The appliance is switched on.")
+
+
+class WashingMachine(Appliance):
+    def wash_clothes(self):
+        print("The washing machine is washing clothes.")
+
+
+machine = WashingMachine()
+
+machine.switch_on()
+machine.wash_clothes()
+
+# Output:
+# The appliance is switched on.
+# The washing machine is washing clothes.
+
+# Explanation:
+# WashingMachine inherits from one parent class: Appliance.
+#
+# switch_on() is inherited from Appliance.
+# wash_clothes() is defined in WashingMachine.
+#
+# Structure:
+#
+# Appliance
+#     |
+# WashingMachine
+
+
+# ============================================================
+# 21.2.8.2 - Multiple Inheritance
+# ============================================================
+
+# Multiple inheritance occurs when one child class inherits
+# directly from two or more parent classes.
+
+
+class Printer:
+    def print_document(self):
+        print("Printing the document.")
+
+
+class Scanner:
+    def scan_document(self):
+        print("Scanning the document.")
+
+
+class OfficeMachine(Printer, Scanner):
+    def make_copy(self):
+        print("Making a copy of the document.")
+
+
+office_machine = OfficeMachine()
+
+office_machine.print_document()
+office_machine.scan_document()
+office_machine.make_copy()
+
+# Output:
+# Printing the document.
+# Scanning the document.
+# Making a copy of the document.
+
+# Explanation:
+# OfficeMachine inherits from both Printer and Scanner.
+#
+# It can use print_document() from Printer,
+# scan_document() from Scanner,
+# and its own make_copy() method.
+#
+# Structure:
+#
+# Printer       Scanner
+#     \          /
+#      \        /
+#     OfficeMachine
 
 
 
