@@ -1265,3 +1265,58 @@ electric_car.show_type()
 
 
 
+# ============================================================
+# 21.2.9 - Practical Inheritance Examples and Exercises
+# ============================================================
+
+# This section combines the inheritance concepts studied so far:
+#
+# 1. Inheriting attributes and methods
+# 2. Single and multilevel inheritance
+# 3. Multiple inheritance
+# 4. Using super() in constructors
+# 5. Method overriding
+# 6. Using super() in an overridden method
+
+
+# ============================================================
+# 21.2.9.1 - Inheriting Attributes and Methods
+# ============================================================
+
+# A child class can inherit an initializer and methods
+# from its parent class without defining them again.
+
+
+class LibraryItem:
+    def __init__(self, title):
+        self.title = title
+
+    def display_info(self):
+        print(f"Book title: {self.title}")
+
+
+class Book(LibraryItem):
+    def read(self):
+        print(f"Reading: {self.title}")
+
+
+book1 = Book("Python Basics")
+
+book1.display_info()
+book1.read()
+
+# Output:
+# Book title: Python Basics
+# Reading: Python Basics
+
+# Explanation:
+# Book inherits __init__() and display_info() from LibraryItem.
+# Book defines its own read() method.
+#
+# Since Book does not define __init__(), Python uses the
+# inherited initializer to initialize the title attribute.
+
+
+# ============================================================
+# 21.2.9.2 - Multilevel Inheritance and super()
+# ============================================================
