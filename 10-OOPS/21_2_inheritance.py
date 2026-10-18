@@ -1058,4 +1058,210 @@ office_machine.make_copy()
 #     OfficeMachine
 
 
+# ============================================================
+# 21.2.8.3 - Multilevel Inheritance
+# ============================================================
+
+# Multilevel inheritance occurs when inheritance forms
+# a chain of classes.
+
+
+class Account:
+    def show_account_type(self):
+        print("This is a bank account.")
+
+
+class BankAccount(Account):
+    def deposit(self):
+        print("Money deposited successfully.")
+
+
+class SavingsAccount(BankAccount):
+    def calculate_interest(self):
+        print("Calculating savings interest.")
+
+
+savings = SavingsAccount()
+
+savings.show_account_type()
+savings.deposit()
+savings.calculate_interest()
+
+# Output:
+# This is a bank account.
+# Money deposited successfully.
+# Calculating savings interest.
+
+# Explanation:
+# BankAccount inherits from Account.
+# SavingsAccount inherits from BankAccount.
+#
+# Therefore, SavingsAccount can use methods from both
+# BankAccount and Account, as well as its own methods.
+#
+# Structure:
+#
+# Account
+#    |
+# BankAccount
+#    |
+# SavingsAccount
+
+
+# ============================================================
+# 21.2.8.4 - Hierarchical Inheritance
+# ============================================================
+
+# Hierarchical inheritance occurs when two or more child
+# classes inherit from the same parent class.
+
+
+class Shape:
+    def describe(self):
+        print("This is a geometric shape.")
+
+
+class Circle(Shape):
+    def draw_circle(self):
+        print("Drawing a circle.")
+
+
+class Rectangle(Shape):
+    def draw_rectangle(self):
+        print("Drawing a rectangle.")
+
+
+circle = Circle()
+rectangle = Rectangle()
+
+circle.describe()
+circle.draw_circle()
+
+rectangle.describe()
+rectangle.draw_rectangle()
+
+# Output:
+# This is a geometric shape.
+# Drawing a circle.
+# This is a geometric shape.
+# Drawing a rectangle.
+
+# Explanation:
+# Circle and Rectangle both inherit from Shape.
+#
+# Both child classes can use describe().
+# Circle defines draw_circle(), while Rectangle defines
+# draw_rectangle().
+#
+# Structure:
+#
+#          Shape
+#          /   \
+#     Circle   Rectangle
+
+
+# ============================================================
+# 21.2.8.5 - Hybrid Inheritance
+# ============================================================
+
+# Hybrid inheritance combines two or more inheritance
+# patterns within the same class hierarchy.
+#
+# This example combines multilevel inheritance and
+# multiple inheritance.
+
+
+class Transport:
+    def move(self):
+        print("The transport is moving.")
+
+
+class Car(Transport):
+    def drive(self):
+        print("The car is being driven.")
+
+
+class ElectricFeature:
+    def charge_battery(self):
+        print("The battery is charging.")
+
+
+class ElectricCar(Car, ElectricFeature):
+    def show_type(self):
+        print("This is an electric car.")
+
+
+electric_car = ElectricCar()
+
+electric_car.move()
+electric_car.drive()
+electric_car.charge_battery()
+electric_car.show_type()
+
+# Output:
+# The transport is moving.
+# The car is being driven.
+# The battery is charging.
+# This is an electric car.
+
+# Explanation:
+# 1. Car inherits from Transport.
+# 2. ElectricCar inherits from both Car and ElectricFeature.
+# 3. The Transport -> Car -> ElectricCar chain demonstrates
+#    multilevel inheritance.
+# 4. ElectricCar(Car, ElectricFeature) demonstrates
+#    multiple inheritance.
+#
+# Combining these patterns creates hybrid inheritance.
+#
+# Simplified structure:
+#
+# Transport       ElectricFeature
+#     |                 |
+#    Car                |
+#       \              /
+#         ElectricCar
+
+
+# ============================================================
+# 21.2.8.6 - Comparison of Inheritance Types
+# ============================================================
+
+# Single Inheritance:
+# One child class inherits directly from one parent class.
+#
+# Multiple Inheritance:
+# One child class inherits directly from multiple parent classes.
+#
+# Multilevel Inheritance:
+# Classes form an inheritance chain.
+#
+# Hierarchical Inheritance:
+# Multiple child classes share one parent class.
+#
+# Hybrid Inheritance:
+# Two or more inheritance patterns are combined in one hierarchy.
+
+
+# ============================================================
+# 21.2.8.7 - Summary
+# ============================================================
+
+# 1. Inheritance promotes code reusability.
+#
+# 2. A child class can use accessible inherited methods
+#    and can define additional methods of its own.
+#
+# 3. Single and multiple inheritance describe how many
+#    parent classes a child class directly inherits from.
+#
+# 4. Multilevel and hierarchical inheritance describe
+#    different class-hierarchy structures.
+#
+# 5. Hybrid inheritance combines multiple inheritance patterns.
+#
+# 6. Python supports multiple inheritance and uses the
+#    Method Resolution Order (MRO) to resolve method lookup.
+
+
 
