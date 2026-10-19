@@ -1320,3 +1320,55 @@ book1.read()
 # ============================================================
 # 21.2.9.2 - Multilevel Inheritance and super()
 # ============================================================
+
+# Multilevel inheritance forms a chain of classes.
+# super() allows each child initializer to reuse the next
+# initializer in the Method Resolution Order (MRO).
+
+
+class Wallet:
+    def __init__(self, owner):
+        self.owner = owner
+
+
+class SavingsWallet(Wallet):
+    def __init__(self, owner, balance):
+        super().__init__(owner)
+        self.balance = balance
+
+
+class RewardsWallet(SavingsWallet):
+    def __init__(self, owner, balance, reward_rate):
+        super().__init__(owner, balance)
+        self.reward_rate = reward_rate
+
+    def display_details(self):
+        print(f"Owner: {self.owner}")
+        print(f"Balance: ${self.balance}")
+        print(f"Reward rate: {self.reward_rate}%")
+
+
+wallet1 = RewardsWallet("John Smith", 1200, 5)
+
+wallet1.display_details()
+
+# Output:
+# Owner: John Smith
+# Balance: $1200
+# Reward rate: 5%
+
+# Explanation:
+# Wallet initializes the owner attribute.
+# SavingsWallet initializes the balance attribute.
+# RewardsWallet initializes the reward_rate attribute.
+#
+# Each initializer uses super() to call the next initializer.
+# All three attributes belong to the same RewardsWallet instance.
+#
+# Inheritance chain:
+#
+# Wallet
+#    |
+# SavingsWallet
+#    |
+# RewardsWallet
