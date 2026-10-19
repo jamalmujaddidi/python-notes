@@ -1372,3 +1372,117 @@ wallet1.display_details()
 # SavingsWallet
 #    |
 # RewardsWallet
+
+
+# ============================================================
+# 21.2.9.3 - Multiple Inheritance
+# ============================================================
+
+# A child class can inherit methods from more than one
+# parent class.
+
+
+class MusicPlayer:
+    def play_music(self):
+        print("Playing music.")
+
+
+class VoiceAssistant:
+    def respond(self):
+        print("The voice assistant is responding.")
+
+
+class SmartSpeaker(MusicPlayer, VoiceAssistant):
+    def connect(self):
+        print("The smart speaker is connected.")
+
+
+speaker1 = SmartSpeaker()
+
+speaker1.play_music()
+speaker1.respond()
+speaker1.connect()
+
+# Output:
+# Playing music.
+# The voice assistant is responding.
+# The smart speaker is connected.
+
+# Explanation:
+# SmartSpeaker inherits from MusicPlayer and VoiceAssistant.
+# It can use methods from both parent classes and define
+# additional methods of its own.
+
+
+# Display the Method Resolution Order (MRO).
+
+print([cls.__name__ for cls in SmartSpeaker.mro()])
+
+# Output:
+# ['SmartSpeaker', 'MusicPlayer', 'VoiceAssistant', 'object']
+
+# Explanation:
+# Python follows the MRO when searching for methods.
+# If multiple parent classes define the same method,
+# the MRO determines which implementation is found first.
+
+
+# ============================================================
+# 21.2.9.4 - Method Overriding and super()
+# ============================================================
+
+# A child class can override a parent method and use super()
+# to reuse the parent's implementation.
+
+
+class DeliveryService:
+    def show_details(self):
+        print("Service: Parcel delivery.")
+
+
+class ExpressDelivery(DeliveryService):
+    def show_details(self):
+        super().show_details()
+        print("Speed: Express delivery in 1-2 business days.")
+
+
+delivery1 = ExpressDelivery()
+delivery1.show_details()
+
+# Output:
+# Service: Parcel delivery.
+# Speed: Express delivery in 1-2 business days.
+
+# Explanation:
+# ExpressDelivery overrides show_details().
+#
+# super().show_details() calls the next implementation in
+# the MRO, which is DeliveryService.show_details() here.
+#
+# After the parent method finishes, the child method
+# prints its additional information.
+#
+# Without the super() call, only the child's message
+# would be printed by this implementation.
+
+# ============================================================
+# 21.2.9.6 - Summary
+# ============================================================
+
+# 1. A child class can inherit attributes and methods from
+#    its parent class.
+#
+# 2. If a child class does not define __init__(), it can
+#    use an inherited initializer.
+#
+# 3. super() can reuse initialization and other methods
+#    in the inheritance hierarchy.
+#
+# 4. Multiple inheritance allows a child class to inherit
+#    from multiple parent classes.
+#
+# 5. Method overriding lets a child class customize an
+#    inherited method.
+#
+# 6. MRO determines the order in which Python searches
+#    classes for methods.
