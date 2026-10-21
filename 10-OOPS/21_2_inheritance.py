@@ -1093,6 +1093,47 @@ office_machine.make_copy()
 #     OfficeMachine
 
 
+# Anothr Example
+
+class Camera:
+    def take_photo(self):
+        print("Taking an aerial photograph.")
+
+
+class GPS:
+    def show_location(self):
+        print("Displaying the drone's location.")
+
+
+class Drone(Camera, GPS):
+    def fly(self):
+        print("The drone is flying.")
+
+
+drone1 = Drone()
+
+drone1.take_photo()
+drone1.show_location()
+drone1.fly()
+
+
+# Output:
+# Taking an aerial photograph.
+# Displaying the drone's location.
+# The drone is flying.
+#
+#
+# What happens?
+#
+# Drone inherits from both Camera and GPS. Therefore, its instance can
+# call methods from both parent classes, as well as its own fly() method.
+#
+# This is multiple inheritance because one child class inherits directly
+# from more than one parent class.
+
+
+
+
 # ============================================================
 # 21.2.8.3 - Multilevel Inheritance
 # ============================================================
