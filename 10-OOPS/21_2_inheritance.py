@@ -1009,6 +1009,41 @@ machine.wash_clothes()
 # WashingMachine
 
 
+# Another Example
+
+class Employee:
+    def __init__(self, name):
+        self.name = name
+
+    def show_details(self):
+        print(f"Employee name: {self.name}")
+
+
+class Developer(Employee):
+    def write_code(self):
+        print(f"{self.name} is writing Python code.")
+
+
+developer1 = Developer("John Smith")
+
+developer1.show_details()
+developer1.write_code()
+
+
+# Output:
+# Employee name: John Smith
+# John Smith is writing Python code.
+#
+#
+# What happens?
+#
+# Developer inherits __init__() and show_details() from
+# Employee. It also defines its own write_code() method.
+#
+# This is single inheritance because Developer directly
+# inherits from one parent class.
+
+
 # ============================================================
 # 21.2.8.2 - Multiple Inheritance
 # ============================================================
