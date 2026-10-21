@@ -1184,6 +1184,59 @@ savings.calculate_interest()
 # SavingsAccount
 
 
+# another example
+
+class Content:
+    def __init__(self, title):
+        self.title = title
+
+    def show_title(self):
+        print(f"Title: {self.title}")
+
+
+class Course(Content):
+    def __init__(self, title, subject):
+        super().__init__(title)
+        self.subject = subject
+
+    def show_subject(self):
+        print(f"Subject: {self.subject}")
+
+
+class OnlineCourse(Course):
+    def __init__(self, title, subject, platform):
+        super().__init__(title, subject)
+        self.platform = platform
+
+    def show_platform(self):
+        print(f"Platform: {self.platform}")
+
+
+course1 = OnlineCourse("Python Programming", "Computer Science", "Online")
+
+course1.show_title()
+course1.show_subject()
+course1.show_platform()
+
+
+# Output:
+# Title: Python Programming
+# Subject: Computer Science
+# Platform: Online
+
+# How does it work?
+# Course inherits from Content.
+#
+# OnlineCourse inherits from Course.
+#
+# super() calls the next initializer in the MRO,
+# so the title and subject attributes are initialized
+# before platform.
+#
+# The OnlineCourse instance can use methods from all three classes.
+
+
+
 # ============================================================
 # 21.2.8.4 - Hierarchical Inheritance
 # ============================================================
