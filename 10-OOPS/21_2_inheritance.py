@@ -1289,6 +1289,47 @@ rectangle.draw_rectangle()
 #     Circle   Rectangle
 
 
+# A school has different types of members. Both teachers and
+# students share common information, but each has different
+# responsibilities.
+
+
+class SchoolMember:
+    def __init__(self, name):
+        self.name = name
+
+    def introduce(self):
+        print(f"My name is {self.name}.")
+
+
+class Teacher(SchoolMember):
+    def teach(self):
+        print(f"{self.name} is teaching mathematics.")
+
+
+class Student(SchoolMember):
+    def study(self):
+        print(f"{self.name} is studying mathematics.")
+
+
+teacher1 = Teacher("John Smith")
+student1 = Student("David")
+
+teacher1.introduce()
+teacher1.teach()
+
+student1.introduce()
+student1.study()
+
+
+# Output:
+# My name is John Smith.
+# John Smith is teaching mathematics.
+# My name is David.
+# David is studying mathematics.
+
+
+
 # ============================================================
 # 21.2.8.5 - Hybrid Inheritance
 # ============================================================
