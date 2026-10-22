@@ -1289,6 +1289,8 @@ rectangle.draw_rectangle()
 #     Circle   Rectangle
 
 
+
+# Another Example
 # A school has different types of members. Both teachers and
 # students share common information, but each has different
 # responsibilities.
@@ -1327,6 +1329,13 @@ student1.study()
 # John Smith is teaching mathematics.
 # My name is David.
 # David is studying mathematics.
+
+
+# Explanation
+
+# This is hierarchical inheritance because two child classes,
+# Teacher and Student, inherit directly from the same parent class,
+# SchoolMember.
 
 
 
@@ -1391,6 +1400,61 @@ electric_car.show_type()
 #    Car                |
 #       \              /
 #         ElectricCar
+
+
+# Another example
+
+# Imagine a game in which a Warrior can attack, a Mage can cast
+# spells, and a Spellblade combines both abilities.
+
+
+class Character:
+    def introduce(self):
+        print("I am a game character.")
+
+
+class Warrior(Character):
+    def attack(self):
+        print("The warrior attacks with a sword.")
+
+
+class Mage(Character):
+    def cast_spell(self):
+        print("The mage casts a magic spell.")
+
+
+class Spellblade(Warrior, Mage):
+    def use_combo(self):
+        print("The spellblade combines sword and magic.")
+
+
+hero = Spellblade()
+
+hero.introduce()
+hero.attack()
+hero.cast_spell()
+hero.use_combo()
+
+print([cls.__name__ for cls in Spellblade.mro()])
+
+
+# Output:
+# I am a game character.
+# The warrior attacks with a sword.
+# The mage casts a magic spell.
+# The spellblade combines sword and magic.
+# ['Spellblade', 'Warrior', 'Mage', 'Character', 'object']
+
+
+# Explanation
+
+# This is hybrid inheritance because it combines two inheritance patterns:
+# - Hierarchical inheritance: Warrior and Mage both inherit from Character.
+# - Multiple inheritance: Spellblade inherits directly from both Warrior and Mage.
+# The MRO shows how Python searches the classes for a method. Here, Spellblade
+# comes first, followed by Warrior, Mage, Character, and finally object.
+
+
 
 
 # ============================================================
