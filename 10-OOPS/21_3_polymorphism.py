@@ -82,3 +82,60 @@ print(a.shap(6,7))
 # 42
 # Notice that the same method name, shap(), handles different
 # argument combinations and produces different results.
+
+
+# Example: This code demonstrates overloading-like behavior
+# using default and variable-length arguments. While Python
+# does not support true method overloading, the same method
+# can handle different numbers of arguments.
+
+class Calculation:
+    def cal(self,a = 1 , b = 1 ,*args ):
+        result = a*b
+        for num in args:
+            result *= num
+        return result
+
+c = Calculation()
+print(c.cal())
+print (c.cal(2))
+print (c.cal(2,5))
+print (c.cal(2,5,7))
+print (c.cal(2, 3,4, 5, 6))
+
+
+# Output
+# 1
+# 2
+# 10
+# 70
+# 720
+
+
+class Product:
+    def check (self, a, b):
+        p = a +b
+        return p
+
+    def check (self, a, b, c ):
+        p = a + b + c
+        return p
+
+t = Product()
+print (t.check(2, 3, 6))
+
+
+# Output
+# 11
+
+# Explanation:
+#
+# The first product() function accepts two arguments.
+# The second product() function accepts three arguments.
+# Python does not maintain both definitions of a function with the same name.
+# When the second product() function is defined, it replaces the first one.
+# Therefore, product(4, 5, 5) calls the second function.
+# The function multiplies 4 × 5 × 5 and returns 100.
+# If product(4, 5) is called, Python raises a TypeError because the active
+# product() function requires three arguments.
+
