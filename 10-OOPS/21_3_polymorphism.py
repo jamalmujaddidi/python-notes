@@ -139,3 +139,35 @@ print (t.check(2, 3, 6))
 # If product(4, 5) is called, Python raises a TypeError because the active
 # product() function requires three arguments.
 
+# Using Variable Arguments (*args)
+# The *args syntax allows a function to accept a variable number of positional
+# arguments. The function can then determine how to process those arguments.
+
+
+class Data:
+    def add(self, datatype, *args):
+        if datatype == 'int':
+            res = 0
+        elif datatype == 'str':
+            res = ''
+        for item in args:
+            res += item
+        print(res)
+d = Data()
+d.add('int', 5, 10)
+d.add('str', 'Hi ', 'Mr John')
+
+
+# Output
+# 11
+# Hi Mr John
+
+# Explanation:
+#
+# datatype specifies how the arguments should be processed.
+# *args accepts any number of additional positional arguments.
+# For integers, the function starts with 0 and adds each value.
+# For strings, the function starts with an empty string and
+# concatenates the values.
+# This approach allows one function to handle different numbers
+# of arguments.
