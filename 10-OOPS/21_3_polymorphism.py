@@ -67,3 +67,18 @@ for animal in animals:
 # Bark
 # Meow
 # Some generic sound
+
+
+class Area:
+    def shap (self , length , width= None):
+        if width is None:
+            return length * length
+        return length * width
+
+a = Area()
+print(a.shap(6,7))
+
+# Output
+# 42
+# Notice that the same method name, shap(), handles different
+# argument combinations and produces different results.
