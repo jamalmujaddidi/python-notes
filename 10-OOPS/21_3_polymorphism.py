@@ -171,3 +171,38 @@ d.add('str', 'Hi ', 'Mr John')
 # concatenates the values.
 # This approach allows one function to handle different numbers
 # of arguments.
+
+# Using Default Arguments
+# Default arguments can be used when a function should
+# work with optional parameters.
+
+class Multiplication:
+
+    def mul(self, a = None, b = None):
+
+        if a is not None and b is None:
+            print (a)
+
+        else:
+            print((a + b))
+
+m = Multiplication()
+m.mul(4)
+m.mul(4,6)
+
+# Output
+# 5
+# 2
+# Explanation:
+#
+# a and b are assigned None by default.
+# When both arguments are provided, their values are added.
+# When only a is provided, b remains None.
+# The conditional statement determines which operation should
+# be performed.
+# This approach is useful when only a small number of argument
+# combinations are required.
+
+
+
+
