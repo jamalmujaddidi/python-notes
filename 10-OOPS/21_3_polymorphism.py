@@ -204,5 +204,44 @@ m.mul(4,6)
 # combinations are required.
 
 
+# Example of multiple_dispatch
+
+class Multiple_dispatch:
+    from multipledispatch import dispatch
+
+    @dispatch(int, int)
+    def product(first, second):
+        result = first * second
+        print(result)
+
+    @dispatch(int, int, int)
+    def product(first, second, third):
+        result = first * second * third
+        print(result)
+
+    @dispatch(float, float, float)
+    def product(first, second, third):
+        result = first * second * third
+        print(result)
+
+
+md = Multiple_dispatch()
+md.product(2, 3, )
+md.product(2, 3 ,2)
+md.product(2.2, 3.4, 2.3)
+
+
+# Output:
+# 6
+# 12
+# 17.204
+# Explanation:
+# •	@dispatch registers different versions of the product() function.
+# •	Each version specifies the expected argument types.
+# •	The appropriate function is selected based on the number and
+# types of arguments.
+# •	This provides behavior closer to traditional method overloading.
+# •	multipledispatch is useful when different argument signatures
+# require different implementations.
 
 
