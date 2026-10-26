@@ -99,6 +99,29 @@ cash.process()
 # Processing payment in cash.
 
 
+class Employee ():
+    def __init__(self):
+        self.Employee_role = "Employee"
+
+    def display (self):
+        print(f"his is an {self.Employee_role} here")
+
+class Manager (Employee):
+    def __init__(self):
+        super().__init__()
+        self.role = "Manager"
+
+    def display(self):
+        super().display()
+        print(f"he is the {self.role}")
+
+m = Manager ()
+m.display()
+# ________________________________________
+# Output:
+# his is an Employee here
+# he is the Manager
+
 
 # ================================================================
 # 21.3.3 — OVERLOADING-LIKE BEHAVIOR WITH DEFAULT ARGUMENTS AND *args
