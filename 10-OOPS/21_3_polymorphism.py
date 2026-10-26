@@ -1,247 +1,319 @@
-# Polymorphism in Python
+# ================================================================
+# 21.3 — POLYMORPHISM IN PYTHON
+# ================================================================
 #
-# Polymorphism in Python allows different classes
-# to have methods with the same name but different
-# behaviours.
+# Polymorphism means "many forms". It allows the same method,
+# function, or operator to behave differently depending on the
+# object or data it works with.
 #
-# In object-oriented programming, Polymorphism means "many forms"
-# and allows the same method, function or operator to behave
-# differently depending on the object or data it works with.
+# In Python, polymorphism commonly appears through:
+#   1. Duck typing
+#   2. Method overriding
+#   3. Built-in functions and operators working with different types
+#   4. Overloading-like behavior using default arguments and *args
+#   5. Type-based dispatch with a library such as multipledispatch
+#
+# Important note about compile-time and run-time polymorphism:
+# Some OOP resources classify polymorphism as compile-time and
+# run-time. Python does not provide traditional signature-based
+# method overloading built into the language. Examples that use
+# default parameters, *args, or multipledispatch are handled at
+# runtime; default parameters and *args are not true method overloads.
+#
 
-# Types of Polymorphism
 
-# 1_ Compile-time Polymorphism
-# 2_Run-time Polymorphism
+# ================================================================
+# 21.3.1 — DUCK TYPING
+# ================================================================
+# Duck typing means that Python code can work with an object based
+# on the behavior it provides, rather than requiring a particular
+# class or inheritance relationship.
 
-# example of Compile-time Polymorphism
+class PDFReport:
+    def save(self):
+        print("Saving report as a PDF file.")
+
+
+class TextReport:
+    def save(self):
+        print("Saving report as a text file.")
+
+
+def save_report(report):
+    report.save()
+
+
+pdf_report = PDFReport()
+text_report = TextReport()
+
+save_report(pdf_report)
+save_report(text_report)
+
+# Output:
+# Saving report as a PDF file.
+# Saving report as a text file.
+#
+# Explanation:
+# - PDFReport and TextReport are separate classes.
+# - Both provide a save() method.
+# - save_report() calls that method without checking the object's class.
+# - Each object supplies its own behavior.
+
+
+# ================================================================
+# 21.3.2 — POLYMORPHISM THROUGH METHOD OVERRIDING
+# ================================================================
+# Method overriding occurs when a child class provides its own
+# implementation of a method inherited from its parent class.
+# This allows the same method call to behave differently for
+# different object types.
+
+class Payment:
+    def process(self):
+        print("Processing a general payment.")
+
+
+class CardPayment(Payment):
+    def process(self):
+        super().process()
+        print("Processing payment by card.")
+
+
+class CashPayment(Payment):
+    def process(self):
+        super().process()
+        print("Processing payment in cash.")
+
+
+card = CardPayment()
+cash = CashPayment()
+
+card.process()
+cash.process()
+
+
+# Output:
+# Processing a general payment.
+# Processing payment by card.
+# Processing a general payment.
+# Processing payment in cash.
+
+
+
+# ================================================================
+# 21.3.3 — OVERLOADING-LIKE BEHAVIOR WITH DEFAULT ARGUMENTS AND *args
+# ================================================================
+# Traditional method overloading means defining multiple methods
+# with the same name but different parameter lists.
+# Python does not support that pattern directly. One method can,
+# however, accept different numbers of arguments using default
+# parameters and *args.
 
 class Calculator:
     def multiply(self, a=1, b=1, *args):
         result = a * b
-        for num in args:
-            result *= num
+        for number in args:
+            result *= number
         return result
 
-calc = Calculator()
-print(calc.multiply())
-print(calc.multiply(4))
-print(calc.multiply(2, 3))
-print(calc.multiply(2, 3, 4))
 
+calculator = Calculator()
 
-# Output
+print(calculator.multiply())
+print(calculator.multiply(4))
+print(calculator.multiply(2, 3))
+print(calculator.multiply(2, 3, 4))
+
+# Output:
 # 1
 # 4
 # 6
 # 24
+#
+# Explanation:
+# - a and b default to 1 when they are not provided.
+# - *args collects additional positional arguments into a tuple.
+# - The method multiplies all the supplied values.
+# - This is flexible argument handling, not traditional method overloading.
 
 
 # ================================================================
-
-
-# Runtime Polymorphism (Overriding)
-# Runtime polymorphism means that the behavior of a method is
-# decided while program is running, based on the object calling it.
-# This happens through Method Overriding a child class provides its
-# own version of a method already defined in the parent class.
-
-
-class Animal:
-    def sound(self):
-        return "Some generic sound"
-
-class Dog(Animal):
-    def sound(self):
-        return "Bark"
-
-class Cat(Animal):
-    def sound(self):
-        return "Meow"
-
-animals = [Dog(), Cat(), Animal()]
-for animal in animals:
-    print(animal.sound())
-
-
-# Output
-# Bark
-# Meow
-# Some generic sound
-
+# 21.3.4 — USING A DEFAULT PARAMETER FOR DIFFERENT ARGUMENT COMBINATIONS
+# ================================================================
+# The width parameter defaults to None. If the caller omits width,
+# the method calculates the area of a square. Otherwise, it calculates
+# the area of a rectangle.
 
 class Area:
-    def shap (self , length , width= None):
+    def area(self, length, width=None):
         if width is None:
             return length * length
         return length * width
 
-a = Area()
-print(a.shap(6,7))
 
-# Output
+shape = Area()
+print(shape.area(6, 7))
+print(shape.area(6))
+
+# Output:
 # 42
-# Notice that the same method name, shap(), handles different
-# argument combinations and produces different results.
+# 36
+#
+# Explanation:
+# - area(6, 7) calculates 6 * 7 = 42.
+# - area(6) treats the shape as a square and calculates 6 * 6 = 36.
+# - One method supports two argument combinations using a default value.
 
 
-# Example: This code demonstrates overloading-like behavior
-# using default and variable-length arguments. While Python
-# does not support true method overloading, the same method
-# can handle different numbers of arguments.
-
-class Calculation:
-    def cal(self,a = 1 , b = 1 ,*args ):
-        result = a*b
-        for num in args:
-            result *= num
-        return result
-
-c = Calculation()
-print(c.cal())
-print (c.cal(2))
-print (c.cal(2,5))
-print (c.cal(2,5,7))
-print (c.cal(2, 3,4, 5, 6))
-
-
-# Output
-# 1
-# 2
-# 10
-# 70
-# 720
-
+# ================================================================
+# 21.3.5 — DEFINING THE SAME METHOD NAME TWICE IN A CLASS
+# ================================================================
+# Python does not keep two methods with the same name in a class
+# namespace. The later definition replaces the earlier definition.
+# This is not traditional method overloading.
 
 class Product:
-    def check (self, a, b):
-        p = a +b
-        return p
+    def check(self, a, b):
+        return a + b
 
-    def check (self, a, b, c ):
-        p = a + b + c
-        return p
-
-t = Product()
-print (t.check(2, 3, 6))
+    def check(self, a, b, c):
+        return a + b + c
 
 
-# Output
+product = Product()
+print(product.check(2, 3, 6))
+
+# Output:
 # 11
-
-# Explanation:
 #
-# The first product() function accepts two arguments.
-# The second product() function accepts three arguments.
-# Python does not maintain both definitions of a function with the same name.
-# When the second product() function is defined, it replaces the first one.
-# Therefore, product(4, 5, 5) calls the second function.
-# The function multiplies 4 × 5 × 5 and returns 100.
-# If product(4, 5) is called, Python raises a TypeError because the active
-# product() function requires three arguments.
+# Explanation:
+# - The second check() definition replaces the first check() definition.
+# - The remaining check() method requires three arguments (besides self).
+# - product.check(2, 3, 6) returns 2 + 3 + 6 = 11.
+# - Calling product.check(2, 3) would raise TypeError because the
+#   active method requires the third argument as well.
 
-# Using Variable Arguments (*args)
-# The *args syntax allows a function to accept a variable number of positional
-# arguments. The function can then determine how to process those arguments.
 
+# ================================================================
+# 21.3.6 — USING *args WITH A SELECTOR PARAMETER
+# ================================================================
+# Here, datatype is a regular parameter that tells the method whether
+# it should add integers or concatenate strings. The labels 'int' and
+# 'str' are strings; they are not the int and str type objects.
 
 class Data:
     def add(self, datatype, *args):
-        if datatype == 'int':
-            res = 0
-        elif datatype == 'str':
-            res = ''
-        for item in args:
-            res += item
-        print(res)
-d = Data()
-d.add('int', 5, 10)
-d.add('str', 'Hi ', 'Mr John')
-
-
-# Output
-# 11
-# Hi Mr John
-
-# Explanation:
-#
-# datatype specifies how the arguments should be processed.
-# *args accepts any number of additional positional arguments.
-# For integers, the function starts with 0 and adds each value.
-# For strings, the function starts with an empty string and
-# concatenates the values.
-# This approach allows one function to handle different numbers
-# of arguments.
-
-# Using Default Arguments
-# Default arguments can be used when a function should
-# work with optional parameters.
-
-class Multiplication:
-
-    def mul(self, a = None, b = None):
-
-        if a is not None and b is None:
-            print (a)
-
+        if datatype == "int":
+            result = 0
+        elif datatype == "str":
+            result = ""
         else:
-            print((a + b))
+            raise ValueError("datatype must be 'int' or 'str'")
 
-m = Multiplication()
-m.mul(4)
-m.mul(4,6)
+        for item in args:
+            result += item
 
-# Output
-# 5
-# 2
-# Explanation:
-#
-# a and b are assigned None by default.
-# When both arguments are provided, their values are added.
-# When only a is provided, b remains None.
-# The conditional statement determines which operation should
-# be performed.
-# This approach is useful when only a small number of argument
-# combinations are required.
-
-
-# Example of multiple_dispatch
-
-class Multiple_dispatch:
-    from multipledispatch import dispatch
-
-    @dispatch(int, int)
-    def product(first, second):
-        result = first * second
         print(result)
+
+
+data = Data()
+data.add("int", 5, 10)
+data.add("str", "Hi ", "Mr John Smith")
+
+# Output:
+# 15
+# Hi Mr John Smith
+#
+# Explanation:
+# - datatype selects the initial value and intended operation.
+# - *args collects the remaining positional arguments into a tuple.
+# - For integers, result starts at 0 and the values are added.
+# - For strings, result starts as an empty string and values are joined.
+# - The ValueError gives a clear message for an unsupported label.
+
+
+# ================================================================
+# 21.3.7 — USING DEFAULT ARGUMENTS TO SUPPORT OPTIONAL INPUT
+# ================================================================
+# If only one argument is provided, this method returns that value.
+# If two arguments are provided, it returns their sum. This is another
+# example of flexible behavior, not traditional method overloading.
+
+class FlexibleAddition:
+    def add_or_return(self, a, b=None):
+        if b is None:
+            return a
+        return a + b
+
+
+flexible = FlexibleAddition()
+print(flexible.add_or_return(4))
+print(flexible.add_or_return(4, 6))
+
+# Output:
+# 4
+# 10
+
+
+# ================================================================
+# 21.3.8 — MULTIPLE DISPATCH WITH THE multipledispatch LIBRARY
+# ================================================================
+# multipledispatch is a third-party library. Install it in the project's
+# active virtual environment with:
+#     python -m pip install multipledispatch
+#
+# Its @dispatch decorator selects an implementation based on the number
+# and types of arguments. This is closer to traditional overloading,
+# but dispatch selection happens at runtime and requires the library.
+
+from multipledispatch import dispatch
+
+
+class MultipleDispatch:
+    @dispatch(int, int)
+    def product(self, first, second):
+        return first * second
 
     @dispatch(int, int, int)
-    def product(first, second, third):
-        result = first * second * third
-        print(result)
+    def product(self, first, second, third):
+        return first * second * third
 
     @dispatch(float, float, float)
-    def product(first, second, third):
-        result = first * second * third
-        print(result)
+    def product(self, first, second, third):
+        return first * second * third
 
 
-md = Multiple_dispatch()
-md.product(2, 3, )
-md.product(2, 3 ,2)
-md.product(2.2, 3.4, 2.3)
-
+multiple = MultipleDispatch()
+print(multiple.product(2, 3))
+print(multiple.product(2, 3, 2))
+print(multiple.product(2.2, 3.4, 2.3))
 
 # Output:
 # 6
 # 12
 # 17.204
+#
 # Explanation:
-# •	@dispatch registers different versions of the product() function.
-# •	Each version specifies the expected argument types.
-# •	The appropriate function is selected based on the number and
-# types of arguments.
-# •	This provides behavior closer to traditional method overloading.
-# •	multipledispatch is useful when different argument signatures
-# require different implementations.
+# - @dispatch registers implementations for different signatures.
+# - Two integers select the two-argument implementation.
+# - Three integers select the three-integer implementation.
+# - Three floats select the three-float implementation.
+# - Because this library is external, it must be installed in the
+#   same Python environment used to run this file.
+
+
+# ================================================================
+# 21.3 — SUMMARY
+# ================================================================
+# - Polymorphism means one interface can provide different behaviors.
+# - Duck typing focuses on the behavior an object provides.
+# - Method overriding lets child classes customize inherited behavior.
+# - Default parameters and *args allow flexible argument combinations,
+#   but do not create traditional multiple method definitions.
+# - Defining the same method name twice in one class does not overload it;
+#   the later definition replaces the earlier one.
+# - multipledispatch is an external library for dispatching by argument
+#   count and types at runtime.
+
 
 
