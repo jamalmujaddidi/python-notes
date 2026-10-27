@@ -328,6 +328,61 @@ formatter.format(32.4)
 # selected different implementations because we supplied different types
 # of arguments.
 
+# =======================================================================
+
+# another Example of @singledispatchmethod
+
+
+from functools import singledispatchmethod
+
+
+class NotificationSender:
+
+    @singledispatchmethod
+    def send(self, message):
+        raise TypeError(
+            f"Unsupported type: {type(message).__name__}"
+        )
+
+    @send.register
+    def _(self, message: str):
+        print(f"Sending notification: {message}")
+
+    @send.register
+    def _(self, messages: list):
+        print("Sending batch notifications:")
+        for message in messages:
+            print(f"- {message}")
+
+
+sender = NotificationSender()
+
+sender.send("Your order has been shipped.")
+
+sender.send([
+    "Payment received.",
+    "Your delivery is scheduled for tomorrow."
+])
+
+
+
+# Output:
+
+# Sending notification: Your order has been shipped.
+# Sending batch notifications:
+# - Payment received.
+# - Your delivery is scheduled for tomorrow.
+
+# Explanation:
+
+
+# @singledispatchmethod allows one method name to support different
+# implementations selected according to the type of its argument.
+#
+# For this example, send() handles strings and lists differently
+# without requiring us to write explicit if/elif type checks inside
+# the method.
+
 # ================================================================
 # 21.3.8 — MULTIPLE DISPATCH WITH THE multipledispatch LIBRARY
 # ================================================================
