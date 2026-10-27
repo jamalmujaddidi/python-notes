@@ -279,6 +279,56 @@ print(flexible.add_or_return(4, 6))
 
 
 # ================================================================
+# Polymorphism Using @singledispatchmethod Library:
+# ================================================================
+
+# singledispatchmethod is provided by Python's standard library,
+# so you don't need to install an external package. It has been
+# available since Python 3.8.
+#
+# Imagine a program that formats different kinds of messages.
+# Numbers should be labelled as numbers, while strings should
+# be labelled as messages.
+
+# Example:
+
+
+from functools import singledispatchmethod
+
+
+class MessageFormatter:
+
+    @singledispatchmethod
+    def format(self, value):
+        print("Unsupported data type.")
+
+    @format.register
+    def _(self, value: int):
+        print(f"Number: {value}")
+
+    @format.register
+    def _(self, value: str):
+        print(f"Message: {value}")
+
+
+formatter = MessageFormatter()
+
+formatter.format(25)
+formatter.format("Hello, John Smith!")
+formatter.format(32.4)
+
+# Output:
+
+# Number: 25
+# Message: Hello, John Smith!
+# Unsupported data type.
+
+# Explanation:
+# Here we called format () twice, using the same method name. But Python
+# selected different implementations because we supplied different types
+# of arguments.
+
+# ================================================================
 # 21.3.8 — MULTIPLE DISPATCH WITH THE multipledispatch LIBRARY
 # ================================================================
 # multipledispatch is a third-party library. Install it in the project's
