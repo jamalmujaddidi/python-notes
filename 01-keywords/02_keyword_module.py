@@ -123,8 +123,39 @@ print(keyword.issoftkeyword("hello"))
 # Output: False
 
 
+
 # ------------------------------------------------------------
-# 7. Summary
+# 7. Keywords vs. Soft Keywords
+# ------------------------------------------------------------
+
+# A hard keyword is reserved by Python's syntax.
+print(keyword.iskeyword("if"))
+# Output: True
+
+# "match" is a soft keyword, not a hard keyword.
+print(keyword.iskeyword("match"))
+# Output: False
+
+print(keyword.issoftkeyword("match"))
+# Output: True (Python 3.10 and later)
+
+# A soft keyword can also be used as an identifier
+# outside the specific syntax where it has special meaning.
+match = "Monthly Report"
+print(match)
+# Output: Monthly Report
+
+
+# Explanation:
+# if is a reserved keyword. match is a soft keyword, so it has
+# special meaning in pattern-matching syntax but can also be
+# used as an ordinary identifier elsewhere.
+
+
+
+
+# ------------------------------------------------------------
+# 8. Summary
 # ------------------------------------------------------------
 
 # keyword.kwlist:
@@ -141,3 +172,7 @@ print(keyword.issoftkeyword("hello"))
 #
 # Note:
 #     The available keywords depend on the Python version.
+
+# Version note:
+# softkwlist and issoftkeyword() were added in Python 3.9.
+# The soft keywords recognized depend on the Python version.
