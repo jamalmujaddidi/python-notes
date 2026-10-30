@@ -111,3 +111,71 @@ c = 2
 print((a + b) * c)
 # Output: 30
 
+
+# ------------------------------------------------------------
+# 5. Expressions Producing Integer Results
+# ------------------------------------------------------------
+
+# These examples are expressions whose results are integers.
+# Whether an expression returns int depends on the operator and operands.
+
+x = 5
+y = 7.5
+print(x + int(y))
+# Evaluation: 5 + int(7.5) -> 5 + 7 -> 12
+# Output: 12
+
+# int() truncates the fractional part toward zero; it does not round.
+print(int(7.9))
+# Output: 7
+
+print(int(-7.9))
+# Output: -7
+
+text_number = "10"
+multiplier = 2
+print(int(text_number) * multiplier)
+# Evaluation: int("10") * 2 -> 10 * 2 -> 20
+# Output: 20
+
+print(15 * 5)
+# Output: 75
+
+# Note: Not every expression made from integers returns an int.
+print(5 / 2)
+# Output: 2.5
+
+
+# ------------------------------------------------------------
+# 6. Floating-Point Arithmetic Expressions
+# ------------------------------------------------------------
+
+# An arithmetic expression involving float values often produces a
+# float result. For built-in numeric arithmetic, int operands are
+# converted to a compatible numeric type when needed.
+
+x = 5
+y = 7.5
+print(x + y)
+# Evaluation: 5 + 7.5 -> 12.5
+# Output: 12.5
+
+text_number = "10"
+multiplier = 2.0
+print(float(text_number) * multiplier)
+# Evaluation: float("10") * 2.0 -> 10.0 * 2.0 -> 20.0
+# Output: 20.0
+
+price = 15.75
+tax = 4
+total = price + tax
+print(total)
+# Evaluation: 15.75 + 4 -> 19.75
+# Output: 19.75
+
+# A floating-point arithmetic expression is not guaranteed to be the
+# result of every expression containing a float: for example, 5.0 > 3
+# produces the Boolean value True.
+print(5.0 > 3)
+# Output: True
+
