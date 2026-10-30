@@ -179,3 +179,46 @@ print(total)
 print(5.0 > 3)
 # Output: True
 
+# ------------------------------------------------------------
+# 7. Comparison Expressions (Relational Expressions)
+# ------------------------------------------------------------
+
+# Comparison operators compare values. For ordinary built-in values,
+# the result is a Boolean: True or False.
+# Operators: ==, !=, <, <=, >, >=
+
+x = 10 + 23
+y = 20 - 5
+z = x >= y
+print(z)
+# Evaluation: 33 >= 15 -> True
+# Output: True
+
+print(10 == 10)
+# Output: True
+
+print(10 != 5)
+# Output: True
+
+print(16 < 18)
+# Output: True
+
+print(20 <= 20)
+# Output: True
+
+print(9 > 12)
+# Output: False
+
+print(8 >= 10)
+# Output: False
+
+# Python also supports membership comparisons such as in and not in.
+print("py" in "python")
+# Output: True
+
+# Identity comparisons use is and is not. They test object identity,
+# not value equality. Use == to compare values in ordinary cases.
+value = None
+print(value is None)
+# Output: True
+
