@@ -222,3 +222,58 @@ value = None
 print(value is None)
 # Output: True
 
+
+
+# ------------------------------------------------------------
+# 8. Logical Expressions and Boolean Operations
+# ------------------------------------------------------------
+
+# Logical operators: and, or, not
+# These operators are often used to combine or negate conditions.
+
+age = 20
+has_id = False
+result = (age >= 18) and has_id
+print(result)
+# Output: False
+
+temperature = 35
+is_raining = False
+result = temperature > 30 or is_raining
+print(result)
+# Output: True
+
+is_logged_in = False
+print(not is_logged_in)
+# Output: True
+
+marks = 85
+attendance = 90
+eligible = marks >= 80 and attendance >= 75
+print(eligible)
+# Output: True
+
+# Precedence: not is evaluated before and; and before or.
+a = 10
+b = 5
+c = 8
+result = (a > b) and (c < a) or (b == 0)
+print(result)
+# Evaluation: True and True or False -> True or False -> True
+# Output: True
+
+# IMPORTANT: and and or do not necessarily return True or False.
+# They return one of their operands. not always returns a Boolean.
+print("hello" and "world")
+# Output: world
+
+print("" or "default")
+# Output: default
+
+print(not "hello")
+# Output: False
+
+# and/or use short-circuit evaluation: Python may not evaluate the
+# right-hand operand if the left-hand operand determines the result.
+
+
