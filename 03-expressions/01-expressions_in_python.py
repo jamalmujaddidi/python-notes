@@ -276,4 +276,57 @@ print(not "hello")
 # and/or use short-circuit evaluation: Python may not evaluate the
 # right-hand operand if the left-hand operand determines the result.
 
+# ------------------------------------------------------------
+# 9. Bitwise Expressions
+# ------------------------------------------------------------
+
+# For built-in integer operands, bitwise operators perform operations
+# on integer bits. Bitwise operators are not arithmetic operators for
+# float values. User-defined classes can customize operator behavior.
+#
+# &  Bitwise AND       |  Bitwise OR
+# ^  Bitwise XOR       ~  Bitwise NOT
+# << Left shift        >> Right shift
+
+# Example 1: Bitwise AND
+print(5 & 3)
+# Binary illustration: 101 & 011 -> 001
+# Output: 1
+
+# Example 2: Bitwise OR
+print(5 | 3)
+# Binary illustration: 101 | 011 -> 111
+# Output: 7
+
+# Example 3: Bitwise XOR (exclusive OR)
+print(5 ^ 3)
+# Binary illustration: 101 ^ 011 -> 110
+# Output: 6
+
+# Example 4: Left shift
+print(5 << 1)
+# Binary illustration: 101 shifted left by one position -> 1010
+# Output: 10
+
+# Example 5: Right shift
+print(8 >> 2)
+# Binary illustration: 1000 shifted right by two positions -> 10
+# Output: 2
+
+# Example 6: Bitwise NOT
+print(~5)
+# Output: -6
+
+# For any integer x, Python's bitwise NOT follows this identity:
+#     ~x == -(x + 1)
+print(~10)
+# Output: -11
+
+print(~0)
+# Output: -1
+
+# The bit patterns above are illustrations. Python integers are not
+# restricted to a fixed number of bits; ~x is best understood using
+# the identity ~x == -(x + 1), rather than a fixed 8-bit diagram.
+
 
