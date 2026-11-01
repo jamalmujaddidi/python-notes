@@ -330,3 +330,27 @@ print(~0)
 # the identity ~x == -(x + 1), rather than a fixed 8-bit diagram.
 
 
+# ------------------------------------------------------------
+# 10. Combined (Mixed) Expressions
+# ------------------------------------------------------------
+
+# A combined expression uses multiple operators or kinds of
+# expressions together. "Combinational expression" is not a special
+# formal Python syntax category; "mixed expression" is clearer wording.
+
+price = 100
+discount = 0.10
+final_price = price * (1 - discount)
+
+print(final_price)
+# Output: 90.0
+
+is_discounted = final_price < price and price > 0
+print(is_discounted)
+# Output: True
+
+# Evaluation of final_price:
+# 100 * (1 - 0.10) -> 100 * 0.90 -> 90.0
+
+
+
