@@ -352,5 +352,22 @@ print(is_discounted)
 # Evaluation of final_price:
 # 100 * (1 - 0.10) -> 100 * 0.90 -> 90.0
 
+# ------------------------------------------------------------
+# 11. Conditional Expressions
+# ------------------------------------------------------------
+
+# A conditional expression selects one of two expressions.
+# Syntax: value_if_true if condition else value_if_false
+
+age = 20
+status = "Adult" if age >= 18 else "Minor"
+print(status)
+# Output: Adult
 
 
+# example
+age = 17
+permission = "Allow" if age >= 18 else "Not Allowed "
+print (permission)
+
+# Output: Not Allowed 
