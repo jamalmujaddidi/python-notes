@@ -370,4 +370,24 @@ age = 17
 permission = "Allow" if age >= 18 else "Not Allowed "
 print (permission)
 
-# Output: Not Allowed 
+# Output: Not Allowed
+
+
+# ------------------------------------------------------------
+# 12. Assignment Expressions (Walrus Operator :=)
+# ------------------------------------------------------------
+
+# An assignment expression assigns a value to a name and also yields
+# that value as part of a larger expression. It was introduced in 3.8.
+# The ordinary assignment statement (=) is not the same as :=.
+
+if (length := len("Python")) > 3:
+    print(length)
+# Output: 6
+
+
+
+if (length := len ("program")) > 3:
+    print(length)
+
+# Output: 7
