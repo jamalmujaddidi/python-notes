@@ -391,3 +391,86 @@ if (length := len ("program")) > 3:
     print(length)
 
 # Output: 7
+
+
+# ------------------------------------------------------------
+# 13. Operator Precedence
+# ------------------------------------------------------------
+
+# Operator precedence determines how an expression is grouped.
+# Higher-precedence operators bind more tightly than lower-precedence
+# operators. Parentheses can make grouping explicit.
+
+print(5 + 2 * 3)
+# Evaluation: 5 + (2 * 3) -> 5 + 6 -> 11
+# Output: 11
+
+print((5 + 2) * 3)
+# Evaluation: 7 * 3 -> 21
+# Output: 21
+
+# Exponentiation groups from right to left.
+print(2 ** 3 ** 2)
+# Evaluation: 2 ** (3 ** 2) -> 2 ** 9 -> 512
+# Output: 512
+
+# Exponentiation has a special interaction with a unary operator
+# on its right-hand side.
+print(-3 ** 2)
+# Evaluation: -(3 ** 2) -> -9
+# Output: -9
+
+print(2 ** -1)
+# Output: 0.5
+
+# Subtraction groups from left to right.
+print(10 - 3 - 2)
+# Evaluation: (10 - 3) - 2 -> 7 - 2 -> 5
+# Output: 5
+
+# Simplified precedence order, from highest to lowest:
+# 1. Grouping / displays: (...), [...], {...}
+# 2. Subscription, slicing, calls, attribute access: x[i], f(), x.name
+# 3. await x
+# 4. Exponentiation: **
+# 5. Unary +, -, ~
+# 6. *, @, /, //, %
+# 7. +, -
+# 8. <<, >>
+# 9. &
+# 10. ^
+# 11. |
+# 12. Comparisons, membership and identity tests:
+#     <, <=, >, >=, ==, !=, in, not in, is, is not
+# 13. not
+# 14. and
+# 15. or
+# 16. Conditional expression: x if condition else y
+# 17. lambda expression
+# 18. Assignment expression: :=
+#
+# Ordinary assignment (=) and augmented assignment (+=, -=, etc.) are
+# statements, not entries in the expression operator-precedence table.
+# Exponentiation and conditional expressions group from right to left;
+# most binary operators group from left to right.
+
+
+# ------------------------------------------------------------
+# 14. Operators and Expressions: Summary
+# ------------------------------------------------------------
+
+# Arithmetic operators       -> arithmetic expressions: a + b
+# Comparison operators       -> comparison expressions: a > b
+# Logical operators          -> logical expressions: a > b and c < d
+# Bitwise operators          -> bitwise expressions: a & b
+# Conditional expression     -> result if condition else alternative
+# Assignment expression      -> name := expression
+#
+# Remember:
+# - An expression evaluates to a value (or raises an exception).
+# - An expression's result type depends on the operation and operands.
+# - Parentheses can clarify or change the grouping of an expression.
+# - Operator precedence and associativity determine grouping when
+#   parentheses are not used.
+# - and/or may return operands, not just Boolean values.
+# - = is used in assignment statements; := is an assignment expression.
