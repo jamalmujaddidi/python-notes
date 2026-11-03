@@ -70,3 +70,45 @@ print("Exponentiation:", a ** b)
 # Floor Division: 3
 # Modulus: 3
 # Exponentiation: 50625
+
+
+# Important:
+# 1. / performs true division and returns a float for built-in numeric
+#    operands, even when the division has no fractional part.
+# 2. // performs floor division. It rounds the quotient down toward
+#    negative infinity; it does not simply remove the decimal part.
+# 3. % returns the remainder. Its sign follows the divisor.
+
+print(20 / 4)
+# Output: 5.0
+
+print(20 // 4)
+# Output: 5
+
+print(15.0 // 4)
+# Output: 3.0
+
+# The result type of // depends on the operand types. With integer
+# operands, the result is an int; with a float operand, the result is
+# a float.
+
+print(-7 // 2)
+# Output: -4
+
+print(-7 % 2)
+# Output: 1
+
+# Floor division and modulus are related by:
+# a == (a // b) * b + (a % b), when b is not zero.
+
+# The + and * operators can also work with sequences such as strings.
+# In that context, they perform concatenation and repetition, not
+# mathematical addition and multiplication.
+
+word = "Python"
+print(word + " Operators")
+# Output: Python Operators
+
+print(word * 3)
+# Output: PythonPythonPython
+
