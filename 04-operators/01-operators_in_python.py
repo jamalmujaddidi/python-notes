@@ -112,3 +112,41 @@ print(word + " Operators")
 print(word * 3)
 # Output: PythonPythonPython
 
+
+# ------------------------------------------------------------
+# 3. Comparison (Relational) Operators
+# ------------------------------------------------------------
+
+# Comparison operators compare two values.
+# For ordinary built-in comparisons, the result is True or False.
+#
+# ==  Equal to
+# !=  Not equal to
+# >   Greater than
+# <   Less than
+# >=  Greater than or equal to
+# <=  Less than or equal to
+
+
+a = 13
+b = 33
+
+print(a > b)
+print(a < b)
+print(a == b)
+print(a != b)
+print(a >= b)
+print(a <= b)
+
+# Output:
+# False
+# True
+# False
+# True
+# False
+# True
+
+# Do not confuse = and ==:
+# =  assigns a value to a variable.
+# == compares two values for equality.
+
