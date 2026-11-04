@@ -150,3 +150,93 @@ print(a <= b)
 # =  assigns a value to a variable.
 # == compares two values for equality.
 
+
+# ------------------------------------------------------------
+# 4. Logical Operators
+# ------------------------------------------------------------
+
+# Logical operators are commonly used to combine or reverse conditions.
+# Python has three logical operators: and, or, and not.
+#
+# Important: and and or can return one of their operands, not necessarily
+# a Boolean value. The not operator always returns True or False.
+
+
+# 4.1. AND operator
+# -----------------
+
+# and returns the first falsy operand if one is found; otherwise, it
+# returns the last operand. When used with Boolean values, it is True
+# only when both operands are True.
+#
+# Truth table:
+# Expression 1    Expression 2    Result
+# True            True            True
+# True            False           False
+# False           True            False
+# False           False           False
+
+age = 20
+score = 75
+
+print(age >= 18 and score >= 60)
+# Evaluation: True and True
+# Output: True
+
+age = 16
+score = 80
+
+print(age >= 18 and score >= 60)
+# Evaluation: False and True
+# Output: False
+
+
+# 4.2. OR operator
+# ----------------
+
+# or returns the first truthy operand if one is found; otherwise, it
+# returns the last operand. When used with Boolean values, it is True
+# when at least one operand is True.
+#
+# Truth table:
+# Expression 1    Expression 2    Result
+# True            True            True
+# True            False           True
+# False           True            True
+# False           False           False
+
+age = 15
+has_permission = True
+
+print(age >= 18 or has_permission)
+# Evaluation: False or True
+# Output: True
+
+age = 15
+has_permission = False
+
+print(age >= 18 or has_permission)
+# Evaluation: False or False
+# Output: False
+
+
+# 4.3. NOT operator
+# ------------------
+
+# not reverses the truth value of an expression:
+# not True  -> False
+# not False -> True
+#
+# Truth table:
+# Expression    Result
+# True          False
+# False         True
+
+is_logged_in = False
+print(not is_logged_in)
+# Output: True
+
+age = 20
+print(not (age >= 18))
+# Evaluation: not True
+# Output: False
