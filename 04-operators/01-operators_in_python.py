@@ -265,4 +265,36 @@ print(True or False)
 # Short-circuiting can avoid unnecessary work and can prevent certain
 # errors by avoiding evaluation of an expression that should not run.
 
+# 4.5. Using OR to provide a default value
+# ----------------------------------------
+
+# Because or returns an operand, it can be used to provide a default.
+# If the first value is truthy, or returns that value.
+# If the first value is falsy, or returns the value on the right.
+
+address = "Kabul"
+address_result = address or "NA"
+print(address_result)
+# Output: Kabul
+
+address = ""
+address_result = address or "NA"
+print(address_result)
+# Output: NA
+
+# This works because an empty string is falsy.
+# Other common falsy values include:
+# False, None, 0, 0.0, "", [], {}, (), and set().
+
+name = "" or "Guest"
+print(name)
+# Output: Guest
+
+# Common practical use:
+# If the user presses Enter without typing a name, input() returns an
+# empty string, so the default value "Guest" is selected.
+# Uncomment to try it:
+# name = input("Enter your name: ") or "Guest"
+# print(name)
+
 
