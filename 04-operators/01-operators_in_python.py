@@ -240,3 +240,29 @@ age = 20
 print(not (age >= 18))
 # Evaluation: not True
 # Output: False
+
+
+# 4.4. Short-circuit evaluation
+# -----------------------------
+
+# Short-circuiting means Python may stop evaluating a logical expression
+# as soon as its result is determined by the left operand.
+#
+# With and:
+# If the left operand is falsy, Python does not evaluate the right
+# operand because the result is already determined.
+#
+# With or:
+# If the left operand is truthy, Python does not evaluate the right
+# operand because the result is already determined.
+
+print(False and True)
+# Output: False
+
+print(True or False)
+# Output: True
+
+# Short-circuiting can avoid unnecessary work and can prevent certain
+# errors by avoiding evaluation of an expression that should not run.
+
+
