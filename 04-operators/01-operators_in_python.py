@@ -298,3 +298,56 @@ print(name)
 # print(name)
 
 
+# ------------------------------------------------------------
+# 5. Bitwise Operators
+# ------------------------------------------------------------
+
+# Bitwise operators perform operations on the bits of integer operands.
+#
+# &   Bitwise AND
+# |   Bitwise OR
+# ^   Bitwise XOR (exclusive OR)
+# ~   Bitwise NOT
+# <<  Left shift
+# >>  Right shift
+
+
+# 5.1. Binary number system and conversions
+# ------------------------------------------
+
+# Binary is a number system that uses only two digits: 0 and 1.
+# Decimal is a number system that uses ten digits: 0 through 9.
+#
+# Decimal to binary example: 13
+#
+# Divide by 2 and record each remainder:
+# 13 / 2 -> quotient 6, remainder 1
+#  6 / 2 -> quotient 3, remainder 0
+#  3 / 2 -> quotient 1, remainder 1
+#  1 / 2 -> quotient 0, remainder 1
+#
+# Read the remainders from bottom to top: 1101
+# Therefore: 13 (decimal) = 1101 (binary)
+#
+# Another way: use powers of 2 (8, 4, 2, 1).
+# 13 = 8 + 4 + 1, so the corresponding bits are 1, 1, 0, 1.
+# This also gives 1101 (binary).
+
+number = 13
+print(bin(number))
+# Output: 0b1101
+
+# The 0b prefix identifies a binary integer representation.
+
+# Binary to decimal example: 1101
+#
+# From right to left, use powers of 2 starting at 2**0:
+# Binary digit:  1    1    0    1
+# Power of 2:   2**3 2**2 2**1 2**0
+# Value:         8    4    0    1
+# Sum: 8 + 4 + 0 + 1 = 13
+
+print(int("0b10011", 2))
+# Output: 19
+
+# int(text, 2) converts a binary string to a decimal integer.
