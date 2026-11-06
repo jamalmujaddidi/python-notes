@@ -351,3 +351,68 @@ print(int("0b10011", 2))
 # Output: 19
 
 # int(text, 2) converts a binary string to a decimal integer.
+
+
+
+# 5.2. Bitwise AND (&)
+# --------------------
+
+# Compares corresponding bits:
+# 0 & 0 -> 0
+# 0 & 1 -> 0
+# 1 & 0 -> 0
+# 1 & 1 -> 1
+# A result bit is 1 only when both corresponding bits are 1.
+
+a = 3
+b = 6
+
+print(a & b)
+# Binary:
+# 3 = 0011
+# 6 = 0110
+#     ----
+#     0010 -> 2
+# Output: 2
+
+
+# 5.3. Bitwise OR (|)
+# -------------------
+
+# A result bit is 1 when at least one corresponding bit is 1.
+# 0 | 0 -> 0
+# 0 | 1 -> 1
+# 1 | 0 -> 1
+# 1 | 1 -> 1
+
+a = 10
+b = 5
+
+print(a | b)
+# Binary:
+# 10 = 1010
+#  5 = 0101
+#      ----
+#      1111 -> 15
+# Output: 15
+
+
+# 5.4. Bitwise XOR (^)
+# --------------------
+
+# XOR produces 1 when the corresponding bits are different.
+# 0 ^ 0 -> 0
+# 0 ^ 1 -> 1
+# 1 ^ 0 -> 1
+# 1 ^ 1 -> 0
+
+a = 10
+b = 5
+
+print(a ^ b)
+# Binary:
+# 10 = 1010
+#  5 = 0101
+#      ----
+#      1111 -> 15
+# Output: 15
