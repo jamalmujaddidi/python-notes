@@ -466,3 +466,39 @@ print(a >> 3)
 
 # Bits shifted out on the right are discarded. For positive integers,
 # zeros are added on the left.
+
+
+# 5.7. Bitwise NOT (~)
+# --------------------
+
+# Bitwise NOT inverts the bits of an integer.
+# Python integers have arbitrary precision; conceptually, negative
+# integers behave as though they have an unlimited sign extension.
+# Therefore, do not rely on a fixed 4-bit or 8-bit representation to
+# calculate Python's result.
+#
+# For every integer n:
+#     ~n == -(n + 1)
+
+print(~5)
+# Evaluation: -(5 + 1) -> -6
+# Output: -6
+
+print(~10)
+# Output: -11
+
+print(~0)
+# Output: -1
+
+# Signed and unsigned integers (general computing concept):
+# - A signed integer representation can represent negative values, zero,
+#   and positive values.
+# - An unsigned integer representation represents zero and positive
+#   values only.
+# Python's built-in int type does not require a fixed-width signed or
+# unsigned declaration; Python integers support arbitrary precision.
+#
+# The fixed-width one's-complement and two's-complement method is useful
+# when studying hardware representations of signed integers. It is not
+# necessary to calculate Python's bitwise NOT results because Python's
+# integer behavior is described by the formula above.
