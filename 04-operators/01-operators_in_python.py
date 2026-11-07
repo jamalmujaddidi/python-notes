@@ -416,3 +416,53 @@ print(a ^ b)
 #      ----
 #      1111 -> 15
 # Output: 15
+
+
+
+# 5.5. Bitwise left shift (<<)
+# ----------------------------
+
+# Shifts the bits of an integer to the left by a specified number
+# of positions. For integers, x << n is equivalent to x * (2 ** n)
+# when n is non-negative.
+
+a = 5
+
+print(a << 1)
+# Binary: 0101 << 1 -> 1010
+# Output: 10
+
+print(a << 2)
+# Binary: 0101 << 2 -> 10100
+# Output: 20
+
+print(a << 3)
+# Binary: 0101 << 3 -> 101000
+# Output: 40
+
+# Zeros are added on the right as the bits shift left.
+
+
+# 5.6. Bitwise right shift (>>)
+# -----------------------------
+
+# Shifts the bits of an integer to the right by a specified number
+# of positions. For integers and non-negative n, x >> n is equivalent
+# to floor division by 2 ** n.
+
+a = 20
+
+print(a >> 1)
+# Binary: 10100 >> 1 -> 01010
+# Output: 10
+
+print(a >> 2)
+# Binary: 10100 >> 2 -> 00101
+# Output: 5
+
+print(a >> 3)
+# Binary: 10100 >> 3 -> 00010
+# Output: 2
+
+# Bits shifted out on the right are discarded. For positive integers,
+# zeros are added on the left.
