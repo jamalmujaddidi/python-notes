@@ -502,3 +502,58 @@ print(~0)
 # when studying hardware representations of signed integers. It is not
 # necessary to calculate Python's bitwise NOT results because Python's
 # integer behavior is described by the formula above.
+
+
+# ------------------------------------------------------------
+# 6. Assignment Operators
+# ------------------------------------------------------------
+
+# Assignment is used to bind a name to an object.
+# The simple assignment symbol is =.
+# Augmented assignment combines an operation with assignment.
+#
+# Common augmented assignment operators:
+# +=   Addition assignment
+# -=   Subtraction assignment
+# *=   Multiplication assignment
+# /=   Division assignment
+# //=  Floor division assignment
+# %=   Modulus assignment
+# **=  Exponentiation assignment
+# &=   Bitwise AND assignment
+# |=   Bitwise OR assignment
+# ^=   Bitwise XOR assignment
+# <<=  Left-shift assignment
+# >>=  Right-shift assignment
+
+
+# 6.1. Simple assignment (=)
+# --------------------------
+
+x = 10
+print(x)
+# Output: 10
+
+# The name x is bound to the integer object 10.
+
+
+# 6.2. Addition assignment (+=)
+# -----------------------------
+
+x = 10
+x += 5
+print(x)
+# Equivalent for this integer example: x = x + 5
+# Evaluation: 10 + 5 -> 15
+# Output: 15
+
+
+# 6.3. Subtraction assignment (-=)
+# --------------------------------
+
+x = 10
+x -= 3
+print(x)
+# Equivalent for this integer example: x = x - 3
+# Evaluation: 10 - 3 -> 7
+# Output: 7
