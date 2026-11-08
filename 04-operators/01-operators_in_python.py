@@ -557,3 +557,58 @@ print(x)
 # Equivalent for this integer example: x = x - 3
 # Evaluation: 10 - 3 -> 7
 # Output: 7
+
+
+# 6.4. Multiplication assignment (*=)
+# -----------------------------------
+
+x = 10
+x *= 4
+print(x)
+# Equivalent for this integer example: x = x * 4
+# Evaluation: 10 * 4 -> 40
+# Output: 40
+
+
+# 6.5. Division assignment (/=)
+# -----------------------------
+
+x = 20
+x /= 4
+print(x)
+# Equivalent for this numeric example: x = x / 4
+# Evaluation: 20 / 4 -> 5.0
+# Output: 5.0
+
+
+# 6.6. Floor division assignment (//=)
+# ------------------------------------
+
+x = 17
+x //= 5
+print(x)
+# Equivalent for this integer example: x = x // 5
+# Evaluation: 17 // 5 -> 3
+# Output: 3
+
+
+# 6.7. Modulus assignment (%=)
+# ---------------------------
+
+x = 17
+x %= 5
+print(x)
+# Equivalent for this integer example: x = x % 5
+# Remainder: 17 % 5 -> 2
+# Output: 2
+
+
+# 6.8. Exponentiation assignment (**=)
+# -----------------------------------
+
+x = 2
+x **= 4
+print(x)
+# Equivalent for this integer example: x = x ** 4
+# Evaluation: 2 ** 4 -> 16
+# Output: 16
