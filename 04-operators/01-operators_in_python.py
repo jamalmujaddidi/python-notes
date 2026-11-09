@@ -679,3 +679,47 @@ numbers = [1, 2]
 numbers += [3]
 print(numbers)
 # Output: [1, 2, 3]
+
+
+
+# ------------------------------------------------------------
+# 7. Membership Operators
+# ------------------------------------------------------------
+
+# Membership operators check whether a value is present in a container.
+# Python has two membership operators:
+# in      -> True if the value is found
+# not in  -> True if the value is not found
+
+
+# 7.1. The in operator
+# --------------------
+
+fruits = ["apple", "banana", "orange"]
+name = "Python"
+
+print("banana" in fruits)
+print("grape" in fruits)
+print("th" in name)
+
+# Output:
+# True
+# False
+# True
+
+# "banana" is in the list.
+# "grape" is not in the list.
+# The substring "th" occurs in the string "Python".
+
+
+# 7.2. The not in operator
+# ------------------------
+
+colors = ["red", "green", "blue"]
+
+print("red" not in colors)
+print("yellow" not in colors)
+
+# Output:
+# False
+# True
