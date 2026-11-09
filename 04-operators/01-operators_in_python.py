@@ -612,3 +612,70 @@ print(x)
 # Equivalent for this integer example: x = x ** 4
 # Evaluation: 2 ** 4 -> 16
 # Output: 16
+
+
+
+# 6.9. Bitwise AND assignment (&=)
+# --------------------------------
+
+x = 6
+x &= 3
+print(x)
+# Equivalent for this integer example: x = x & 3
+# Binary: 110 & 011 -> 010
+# Output: 2
+
+
+# 6.10. Bitwise OR assignment (|=)
+# -------------------------------
+
+x = 6
+x |= 3
+print(x)
+# Equivalent for this integer example: x = x | 3
+# Binary: 110 | 011 -> 111
+# Output: 7
+
+
+# 6.11. Bitwise XOR assignment (^=)
+# --------------------------------
+
+x = 6
+x ^= 3
+print(x)
+# Equivalent for this integer example: x = x ^ 3
+# Binary: 110 ^ 011 -> 101
+# Output: 5
+
+
+# 6.12. Left-shift assignment (<<=)
+# --------------------------------
+
+x = 5
+x <<= 1
+print(x)
+# Equivalent for this integer example: x = x << 1
+# Binary: 101 << 1 -> 1010
+# Output: 10
+
+
+# 6.13. Right-shift assignment (>>=)
+# ---------------------------------
+
+x = 10
+x >>= 1
+print(x)
+# Equivalent for this integer example: x = x >> 1
+# Binary: 1010 >> 1 -> 0101
+# Output: 5
+
+# Important note about augmented assignment:
+# For simple immutable numeric values, x += y behaves like x = x + y.
+# For mutable objects, an augmented assignment may update the existing
+# object in place when the type supports it. Therefore, augmented
+# assignment is not always identical to writing x = x + y.
+
+numbers = [1, 2]
+numbers += [3]
+print(numbers)
+# Output: [1, 2, 3]
