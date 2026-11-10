@@ -723,3 +723,55 @@ print("yellow" not in colors)
 # Output:
 # False
 # True
+
+
+# 7.3. Membership operators with dictionaries
+# --------------------------------------------
+
+# When in or not in is used directly with a dictionary, Python checks
+# its keys, not its values.
+
+student = {
+    "name": "John Smith",
+    "age": 35,
+    "country": "USA"
+}
+
+print("name" in student)
+print("John Smith" in student)
+print("age" not in student)
+
+# Output:
+# True
+# False
+# False
+
+# To check dictionary values, use the values() view.
+print("John Smith" in student.values())
+# Output: True
+
+# To check dictionary keys explicitly, use keys().
+print("age" in student.keys())
+# Output: True
+
+
+# 7.4. operator.contains() function
+# ---------------------------------
+
+# The operator module provides contains(a, b), which performs the
+# membership test b in a.
+# It is a function in the operator module, not an additional membership
+# operator.
+
+import operator
+
+numbers = [10, 20, 30, 40]
+
+print(operator.contains(numbers, 20))
+print(operator.contains(numbers, 50))
+
+# Output:
+# True
+# False
+
+# operator.contains(numbers, 20) is equivalent to: 20 in numbers
