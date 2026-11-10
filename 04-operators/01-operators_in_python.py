@@ -775,3 +775,47 @@ print(operator.contains(numbers, 50))
 # False
 
 # operator.contains(numbers, 20) is equivalent to: 20 in numbers
+
+
+
+# ------------------------------------------------------------
+# 8. Identity Operators
+# ------------------------------------------------------------
+
+# Identity operators check whether two names refer to the same object.
+# Python has two identity operators:
+# is      -> True if both names refer to the same object
+# is not  -> True if they refer to different objects
+
+
+# 8.1. The is operator
+# --------------------
+
+a = [1, 2, 3]
+b = a
+c = [1, 2, 3]
+
+print(a is b)
+print(a is c)
+
+# Output:
+# True
+# False
+
+# b = a makes b refer to the same list object as a.
+# c = [1, 2, 3] creates a separate list object with equal contents.
+
+
+# 8.2. The is not operator
+# ------------------------
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+print(a is not b)
+print(a is not c)
+
+# Output:
+# True
+# False
