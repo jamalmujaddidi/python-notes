@@ -819,3 +819,47 @@ print(a is not c)
 # Output:
 # True
 # False
+
+
+
+# 8.3. Equality (==) versus identity (is)
+# ---------------------------------------
+
+# == checks whether values are equal.
+# is checks whether two names refer to the same object.
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)
+print(a is b)
+
+# Output:
+# True
+# False
+
+# The lists have equal contents, but they are two separate objects.
+# Do not use is to compare ordinary values such as strings or integers.
+# Some immutable objects may be reused by Python implementations, so
+# an identity result for equal values should not be relied upon.
+
+
+# 8.4. Using is with None
+# -----------------------
+
+# Use is None and is not None to test whether a value is None.
+
+result = None
+
+print(result is None)
+# Output: True
+
+if result is None:
+    print("No result")
+# Output: No result
+
+result = "Success"
+
+if result is not None:
+    print("Result exists")
+# Output: Result exists
