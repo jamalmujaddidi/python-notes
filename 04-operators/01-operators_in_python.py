@@ -863,3 +863,58 @@ result = "Success"
 if result is not None:
     print("Result exists")
 # Output: Result exists
+
+
+
+# ------------------------------------------------------------
+# 9. Conditional Expression (Ternary Conditional Expression)
+# ------------------------------------------------------------
+
+# Python's conditional expression selects one of two expressions.
+# It is often informally called the ternary operator because it has
+# three parts.
+#
+# Syntax:
+#     value_if_true if condition else value_if_false
+#
+# If condition is True, Python evaluates the expression before if.
+# Otherwise, it evaluates the expression after else.
+
+age = 20
+status = "Adult" if age >= 18 else "Minor"
+print(status)
+# Output: Adult
+
+# Equivalent if-else statement:
+# if age >= 18:
+#     status = "Adult"
+# else:
+#     status = "Minor"
+
+
+# The expressions can also be numeric values.
+a = 10
+b = 20
+larger = a if a > b else b
+print(larger)
+# Output: 20
+
+# A conditional expression can be used directly.
+age = 16
+print("Allowed" if age >= 18 else "Not allowed")
+# Output: Not allowed
+
+# Nested conditional expressions are allowed, but can become difficult
+# to read. Use a regular if-elif-else statement when the logic is complex.
+score = 75
+result = "Excellent" if score >= 90 else "Good" if score >= 60 else "Fail"
+print(result)
+# Output: Good
+
+# The selected results can themselves be expressions.
+a = 10
+b = 20
+result = a + b if a > b else a * b
+print(result)
+# Evaluation: 10 > 20 is False, so 10 * 20 is selected.
+# Output: 200
