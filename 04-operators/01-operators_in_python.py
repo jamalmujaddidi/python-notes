@@ -918,3 +918,42 @@ result = a + b if a > b else a * b
 print(result)
 # Evaluation: 10 > 20 is False, so 10 * 20 is selected.
 # Output: 200
+
+
+
+# ------------------------------------------------------------
+# 10. Quick Summary of Python Operators
+# ------------------------------------------------------------
+
+# Arithmetic:
+# +, -, *, /, //, %, **
+# Perform mathematical operations.
+#
+# Comparison:
+# ==, !=, >, <, >=, <=
+# Compare values and ordinarily produce True or False.
+#
+# Logical:
+# and, or, not
+# Combine conditions or reverse a truth value. Remember that and/or
+# can return operands; not returns a Boolean value.
+#
+# Bitwise:
+# &, |, ^, ~, <<, >>
+# Perform bit-level operations on integers.
+#
+# Assignment:
+# =, +=, -=, *=, /=, //=, %=, **=, &=, |=, ^=, <<=, >>=
+# Assign or update a variable's value.
+#
+# Membership:
+# in, not in
+# Check whether a value is present in a container.
+#
+# Identity:
+# is, is not
+# Check whether two names refer to the same object.
+#
+# Conditional expression:
+# value_if_true if condition else value_if_false
+# Selects one of two expressions based on a condition.
