@@ -957,3 +957,33 @@ print(result)
 # Conditional expression:
 # value_if_true if condition else value_if_false
 # Selects one of two expressions based on a condition.
+
+
+
+# ------------------------------------------------------------
+# 11. Important Differences to Remember
+# ------------------------------------------------------------
+
+# / versus //:
+# /  -> true division; 20 / 4 produces 5.0.
+# // -> floor division; 17 // 5 produces 3.
+#
+# and/or versus not:
+# and and or may return one of their operands.
+# not always returns True or False.
+#
+# in versus is:
+# in -> checks whether a value exists inside a container.
+# is -> checks whether two names refer to the same object.
+#
+# == versus is:
+# == -> checks value equality.
+# is -> checks object identity.
+#
+# = versus ==:
+# =  -> assignment.
+# == -> equality comparison.
+#
+# Composition of a conditional expression:
+# value_if_true if condition else value_if_false
+# This is an expression, not a regular if-else statement.
