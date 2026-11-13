@@ -88,3 +88,43 @@ print(hex_to_decimal)
 # 520
 # 1010
 # 4112
+
+
+
+# ------------------------------------------------------------
+# 2.1 BINARY TO DECIMAL
+# ------------------------------------------------------------
+
+"""
+Binary is base 2.
+
+Each position represents a power of 2.
+
+Example:
+
+    Binary: 1010
+
+    Position values:  8    4    2    1
+    Powers:           2^3  2^2  2^1  2^0
+    Binary digits:     1    0    1    0
+
+    Calculation:
+
+    1 * 2^3 + 0 * 2^2 + 1 * 2^1 + 0 * 2^0
+
+    = 8 + 0 + 2 + 0
+    = 10
+
+Therefore:
+
+    1010 (Binary) = 10 (Decimal)
+"""
+
+binary_number = int("1010", 2)
+
+print("\nBinary to Decimal:")
+print(binary_number)
+
+# Output:
+# Binary to Decimal:
+# 10
