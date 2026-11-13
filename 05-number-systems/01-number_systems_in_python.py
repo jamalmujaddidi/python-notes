@@ -45,3 +45,46 @@ Hexadecimal    Decimal
 
 Each position in a number represents a power of its base.
 """
+
+
+
+# ============================================================
+# 2. NON-DECIMAL TO DECIMAL CONVERSION
+# ============================================================
+
+"""
+Python provides the int() function to convert a number
+represented as a string in another base into a decimal integer.
+
+Syntax:
+
+    int("number", base)
+
+The first argument is the number represented as a string.
+The second argument specifies the base of that number.
+
+Examples:
+
+    int("1010", 2)     # Binary to Decimal
+    int("1010", 8)     # Octal to Decimal
+    int("1010", 10)    # Decimal to Decimal
+    int("1010", 16)    # Hexadecimal to Decimal
+"""
+
+print("\n2. NON-DECIMAL TO DECIMAL CONVERSION")
+
+binary_to_decimal = int("1010", 2)
+octal_to_decimal = int("1010", 8)
+decimal_to_decimal = int("1010", 10)
+hex_to_decimal = int("1010", 16)
+
+print(binary_to_decimal)
+print(octal_to_decimal)
+print(decimal_to_decimal)
+print(hex_to_decimal)
+
+# Output:
+# 10
+# 520
+# 1010
+# 4112
