@@ -128,3 +128,66 @@ print(binary_number)
 # Output:
 # Binary to Decimal:
 # 10
+
+
+
+# ------------------------------------------------------------
+# 2.2 OCTAL TO DECIMAL
+# ------------------------------------------------------------
+
+"""
+Octal is base 8.
+
+Each position represents a power of 8.
+
+Example 1:
+
+    x = int("17", 8)
+
+    Calculation:
+
+    1 * 8^1 + 7 * 8^0
+
+    = 8 + 7
+    = 15
+
+Therefore:
+
+    17 (Octal) = 15 (Decimal)
+"""
+
+octal_number = int("17", 8)
+
+print("\nOctal to Decimal:")
+print(octal_number)
+
+# Output:
+# Octal to Decimal:
+# 15
+
+
+"""
+Example 2:
+
+    x = int("2457", 8)
+
+    Calculation:
+
+    2 * 8^3 + 4 * 8^2 + 5 * 8^1 + 7 * 8^0
+
+    = 1024 + 256 + 40 + 7
+    = 1327
+
+Therefore:
+
+    2457 (Octal) = 1327 (Decimal)
+"""
+
+octal_number = int("2457", 8)
+
+print("\nAnother Octal to Decimal Example:")
+print(octal_number)
+
+# Output:
+# Another Octal to Decimal Example:
+# 1327
