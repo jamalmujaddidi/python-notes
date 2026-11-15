@@ -191,3 +191,80 @@ print(octal_number)
 # Output:
 # Another Octal to Decimal Example:
 # 1327
+
+
+
+# ------------------------------------------------------------
+# 2.3 HEXADECIMAL TO DECIMAL
+# ------------------------------------------------------------
+
+"""
+Hexadecimal is base 16.
+
+It uses digits 0-9 and letters A-F.
+
+Remember:
+
+    A = 10
+    B = 11
+    C = 12
+    D = 13
+    E = 14
+    F = 15
+
+Example 1:
+
+    x = int("1F", 16)
+
+    Calculation:
+
+    1 * 16^1 + 15 * 16^0
+
+    = 16 + 15
+    = 31
+
+Therefore:
+
+    1F (Hexadecimal) = 31 (Decimal)
+"""
+
+hex_number = int("1F", 16)
+
+print("\nHexadecimal to Decimal:")
+print(hex_number)
+
+# Output:
+# Hexadecimal to Decimal:
+# 31
+
+
+"""
+Example 2:
+
+    x = int("2A3F7", 16)
+
+    Remember:
+    A = 10
+    F = 15
+
+    Calculation:
+
+    2 * 16^4 + 10 * 16^3 + 3 * 16^2
+    + 15 * 16^1 + 7 * 16^0
+
+    = 131072 + 40960 + 768 + 240 + 7
+    = 173047
+
+Therefore:
+
+    2A3F7 (Hexadecimal) = 173047 (Decimal)
+"""
+
+hex_number = int("2A3F7", 16)
+
+print("\nAnother Hexadecimal to Decimal Example:")
+print(hex_number)
+
+# Output:
+# Another Hexadecimal to Decimal Example:
+# 173047
