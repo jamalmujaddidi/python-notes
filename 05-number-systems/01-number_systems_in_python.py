@@ -309,3 +309,52 @@ print(hex(439))
 # 0b11001
 # 0o123
 # 0x1b7
+
+
+
+# ------------------------------------------------------------
+# 3.1 DECIMAL TO BINARY
+# ------------------------------------------------------------
+
+"""
+Binary is base 2.
+
+To convert decimal into binary manually:
+
+1. Divide the decimal number by 2.
+2. Record the remainder.
+3. Divide the quotient by 2 again.
+4. Continue until the quotient becomes 0.
+5. Read the remainders from bottom to top.
+
+Example: Convert 25 to Binary.
+
+Division       Quotient       Remainder
+----------------------------------------
+25 / 2             12              1
+12 / 2              6              0
+6 / 2               3              0
+3 / 2               1              1
+1 / 2               0              1
+
+Read the remainders from bottom to top:
+
+    11001
+
+Therefore:
+
+    25 (Decimal) = 11001 (Binary)
+
+Python:
+
+    bin(25)
+"""
+
+binary_number = bin(25)
+
+print("\nDecimal to Binary:")
+print(binary_number)
+
+# Output:
+# Decimal to Binary:
+# 0b11001
