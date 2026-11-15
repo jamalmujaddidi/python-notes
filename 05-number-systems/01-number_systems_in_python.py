@@ -268,3 +268,44 @@ print(hex_number)
 # Output:
 # Another Hexadecimal to Decimal Example:
 # 173047
+
+
+
+# ============================================================
+# 3. DECIMAL TO NON-DECIMAL CONVERSION
+# ============================================================
+
+"""
+Python provides three built-in functions to convert
+decimal integers into other number systems.
+
+Function    Conversion             Example       Result
+----------------------------------------------------------
+bin()       Decimal to Binary      bin(10)       0b1010
+oct()       Decimal to Octal       oct(15)       0o17
+hex()       Decimal to Hexadecimal hex(31)       0x1f
+
+The prefixes indicate the number system:
+
+Prefix    Number System    Base
+--------------------------------
+0b        Binary             2
+0o        Octal              8
+0x        Hexadecimal       16
+
+Important:
+
+These functions return strings containing the converted
+number and its corresponding prefix.
+"""
+
+print("\n3. DECIMAL TO NON-DECIMAL CONVERSION")
+
+print(bin(25))
+print(oct(83))
+print(hex(439))
+
+# Output:
+# 0b11001
+# 0o123
+# 0x1b7
