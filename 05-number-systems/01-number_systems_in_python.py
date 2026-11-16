@@ -358,3 +358,45 @@ print(binary_number)
 # Output:
 # Decimal to Binary:
 # 0b11001
+
+
+
+# ------------------------------------------------------------
+# 3.2 DECIMAL TO OCTAL
+# ------------------------------------------------------------
+
+"""
+Octal is base 8.
+
+To convert decimal into octal manually, repeatedly divide
+the decimal number by 8 and record the remainders.
+
+Example: Convert 83 to Octal.
+
+Division       Quotient       Remainder
+----------------------------------------
+83 / 8             10              3
+10 / 8              1              2
+1 / 8               0              1
+
+Read the remainders from bottom to top:
+
+    123
+
+Therefore:
+
+    83 (Decimal) = 123 (Octal)
+
+Python:
+
+    oct(83)
+"""
+
+octal_number = oct(83)
+
+print("\nDecimal to Octal:")
+print(octal_number)
+
+# Output:
+# Decimal to Octal:
+# 0o123
