@@ -400,3 +400,65 @@ print(octal_number)
 # Output:
 # Decimal to Octal:
 # 0o123
+
+
+
+# ------------------------------------------------------------
+# 3.3 DECIMAL TO HEXADECIMAL
+# ------------------------------------------------------------
+
+"""
+Hexadecimal is base 16.
+
+To convert decimal into hexadecimal manually, repeatedly
+divide the decimal number by 16 and record the remainders.
+
+Example: Convert 439 to Hexadecimal.
+
+Division       Quotient       Remainder
+----------------------------------------
+439 / 16           27              7
+27 / 16             1              11 = B
+1 / 16              0              1
+
+Read the remainders from bottom to top:
+
+    1B7
+
+Therefore:
+
+    439 (Decimal) = 1B7 (Hexadecimal)
+
+Python:
+
+    hex(439)
+
+Note: Python's hex() function displays hexadecimal letters
+in lowercase by default.
+"""
+
+hex_number = hex(439)
+
+print("\nDecimal to Hexadecimal:")
+print(hex_number)
+
+# Output:
+# Decimal to Hexadecimal:
+# 0x1b7
+
+
+"""
+Main Rule:
+
+When converting decimal to another base:
+
+    1. Divide the decimal number by the target base.
+    2. Record the remainder.
+    3. Divide again.
+    4. Continue until the quotient becomes 0.
+    5. Read the remainders from bottom to top.
+
+Decimal to Binary       -> Divide by 2
+Decimal to Octal        -> Divide by 8
+Decimal to Hexadecimal  -> Divide by 16
+"""
