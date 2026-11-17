@@ -462,3 +462,82 @@ Decimal to Binary       -> Divide by 2
 Decimal to Octal        -> Divide by 8
 Decimal to Hexadecimal  -> Divide by 16
 """
+
+
+
+# ============================================================
+# 4. BINARY TO OCTAL AND HEXADECIMAL
+# ============================================================
+
+"""
+Binary can be converted directly into octal or hexadecimal
+by grouping its digits.
+
+Binary to Octal:
+
+    Group binary digits into sets of 3, starting from the right.
+
+    Reason:
+    8 = 2^3
+
+Binary to Hexadecimal:
+
+    Group binary digits into sets of 4, starting from the right.
+
+    Reason:
+    16 = 2^4
+
+Important:
+
+If the leftmost group contains fewer than 3 or 4 digits,
+add leading zeros to complete that group.
+"""
+
+
+# ------------------------------------------------------------
+# 4.1 BINARY TO OCTAL
+# ------------------------------------------------------------
+
+"""
+Example:
+
+    Convert 10110110 (Binary) to Octal.
+
+Step 1: Group into sets of 3, starting from the right.
+
+    10110110
+    010 110 110
+
+Step 2: Convert each group into its octal equivalent.
+
+    Binary Group       Octal Value
+    --------------------------------
+       010                  2
+       110                  6
+       110                  6
+
+Step 3: Combine the octal digits.
+
+    266
+
+Therefore:
+
+    10110110 (Binary) = 266 (Octal)
+
+Python:
+
+    oct(int("10110110", 2))
+
+First int() converts the binary string into a decimal integer.
+Then oct() converts that integer into an octal representation.
+"""
+
+binary_number = "10110110"
+octal_number = oct(int(binary_number, 2))
+
+print("\nBinary to Octal:")
+print(octal_number)
+
+# Output:
+# Binary to Octal:
+# 0o266
