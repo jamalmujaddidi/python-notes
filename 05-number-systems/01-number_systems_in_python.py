@@ -541,3 +541,49 @@ print(octal_number)
 # Output:
 # Binary to Octal:
 # 0o266
+
+
+
+# ------------------------------------------------------------
+# 4.2 BINARY TO HEXADECIMAL
+# ------------------------------------------------------------
+
+"""
+Example:
+
+    Convert 10110110 (Binary) to Hexadecimal.
+
+Step 1: Group binary digits into sets of 4.
+
+    10110110
+    1011 0110
+
+Step 2: Convert each group into its hexadecimal equivalent.
+
+    Binary Group       Hexadecimal Value
+    -------------------------------------
+       1011                    B
+       0110                    6
+
+Step 3: Combine the hexadecimal digits.
+
+    B6
+
+Therefore:
+
+    10110110 (Binary) = B6 (Hexadecimal)
+
+Python:
+
+    hex(int("10110110", 2))
+"""
+
+binary_number = "10110110"
+hex_number = hex(int(binary_number, 2))
+
+print("\nBinary to Hexadecimal:")
+print(hex_number)
+
+# Output:
+# Binary to Hexadecimal:
+# 0xb6
