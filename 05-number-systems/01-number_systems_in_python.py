@@ -587,3 +587,111 @@ print(hex_number)
 # Output:
 # Binary to Hexadecimal:
 # 0xb6
+
+
+# ============================================================
+# 5. OCTAL TO BINARY AND HEXADECIMAL
+# ============================================================
+
+
+# ------------------------------------------------------------
+# 5.1 OCTAL TO BINARY
+# ------------------------------------------------------------
+
+"""
+Octal is base 8.
+
+Since:
+
+    8 = 2^3
+
+Each octal digit is represented by exactly 3 binary digits.
+
+Octal to Binary Reference Table:
+
+Octal       Binary
+------------------
+  0          000
+  1          001
+  2          010
+  3          011
+  4          100
+  5          101
+  6          110
+  7          111
+
+The Rule:
+
+Replace each octal digit with its 3-bit binary equivalent.
+
+Example 1:
+
+    (527)₈
+
+    5 -> 101
+    2 -> 010
+    7 -> 111
+
+    Combine:
+
+    101 010 111
+
+    Therefore:
+
+    (527)₈ = (101010111)₂
+
+Example 2:
+
+    (5)₈ = (101)₂
+
+Example 3:
+
+    (27)₈
+
+    2 -> 010
+    7 -> 111
+
+    Combine:
+
+    010111
+
+    Remove the unnecessary leading zero:
+
+    (27)₈ = (10111)₂
+
+Example 4:
+
+    (436)₈
+
+    4 -> 100
+    3 -> 011
+    6 -> 110
+
+    Combine:
+
+    100011110
+
+    Therefore:
+
+    (436)₈ = (100011110)₂
+"""
+
+octal_number = bin(int("527", 8))
+print("\nOctal to Binary:")
+print(octal_number)
+
+octal_number = bin(int("5", 8))
+print(octal_number)
+
+octal_number = bin(int("27", 8))
+print(octal_number)
+
+octal_number = bin(int("436", 8))
+print(octal_number)
+
+# Output:
+# Octal to Binary:
+# 0b101010111
+# 0b101
+# 0b10111
+# 0b100011110
