@@ -695,3 +695,49 @@ print(octal_number)
 # 0b101
 # 0b10111
 # 0b100011110
+
+
+# ------------------------------------------------------------
+# 5.2 OCTAL TO HEXADECIMAL
+# ------------------------------------------------------------
+
+"""
+To convert octal to hexadecimal:
+
+    First convert Octal to Binary.
+    Then convert Binary to Hexadecimal.
+
+    Octal -> Binary -> Hexadecimal
+
+Example 1:
+
+    Convert (56)₈ to Hexadecimal.
+
+Step 1: Octal to Binary
+
+    5 -> 101
+    6 -> 110
+
+    Therefore:
+
+    56₈ = 101110₂
+
+Step 2: Group into sets of 4, starting from the right.
+
+    101110
+    10 1110
+
+Step 3: Add leading zeros to complete the first group.
+
+    0010 1110
+
+Step 4: Convert each group to hexadecimal.
+
+    0010 -> 2
+    1110 -> E
+
+Therefore:
+
+    (56)₈ = (2E)₁₆
+
+"""
