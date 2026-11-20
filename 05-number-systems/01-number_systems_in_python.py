@@ -887,4 +887,54 @@ Example 1:
     Therefore:
 
     (A6)₁₆ = (10100110)₂
+
+
+Example 2:
+
+    Convert (3F)₁₆ to Binary.
+
+    3 -> 0011
+    F -> 1111
+
+    Combine:
+
+    00111111
+
+    Therefore:
+
+    (3F)₁₆ = (00111111)₂
+
+
+Example 3:
+
+    Convert (5A)₁₆ to Binary.
+
+    5 -> 0101
+    A -> 1010
+
+    Combine:
+
+    01011010
+
+     Therefore:
+
+    (5A)₁₆ = (01011010)₂
+
+Important:
+
+When converting a hexadecimal number manually, each digit
+must initially be represented using exactly 4 bits.
+
+Python's bin() function removes unnecessary leading zeros
+from the resulting binary representation.
 """
+
+print("\nHexadecimal to Binary:")
+
+print(bin(int("A6", 16)))
+print(bin(int("3F", 16)))
+
+# Output:
+# Hexadecimal to Binary:
+# 0b10100110
+# 0b111111
