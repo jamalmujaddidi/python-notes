@@ -828,3 +828,63 @@ print(hex(int("625", 8)))
 # 0x2e
 # 0xe7
 # 0x195
+
+
+# ============================================================
+# 6. HEXADECIMAL TO BINARY AND OCTAL
+# ============================================================
+
+
+# ------------------------------------------------------------
+# 6.1 HEXADECIMAL TO BINARY
+# ------------------------------------------------------------
+
+"""
+Hexadecimal is base 16.
+
+Since:
+
+    16 = 2^4
+
+Each hexadecimal digit is represented by exactly 4 binary bits.
+
+Hexadecimal to Binary Reference Table:
+
+Hexadecimal       Binary
+------------------------
+     0             0000
+     1             0001
+     2             0010
+     3             0011
+     4             0100
+     5             0101
+     6             0110
+     7             0111
+     8             1000
+     9             1001
+     A             1010
+     B             1011
+     C             1100
+     D             1101
+     E             1110
+     F             1111
+
+The Rule:
+
+Replace each hexadecimal digit with its 4-bit binary equivalent.
+
+Example 1:
+
+    Convert (A6)₁₆ to Binary.
+
+    A -> 1010
+    6 -> 0110
+
+    Combine:
+
+    10100110
+
+    Therefore:
+
+    (A6)₁₆ = (10100110)₂
+"""
