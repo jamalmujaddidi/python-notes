@@ -740,4 +740,91 @@ Therefore:
 
     (56)₈ = (2E)₁₆
 
+
+Example 2:
+
+    Convert (347)₈ to Hexadecimal.
+
+Step 1: Octal to Binary
+
+    3 -> 011
+    4 -> 100
+    7 -> 111
+
+    Therefore:
+
+    347₈ = 011100111₂
+
+Step 2: Group into sets of 4, starting from the right.
+
+    011100111
+    0 1110 0111
+
+Step 3: Add leading zeros.
+
+    0000 1110 0111
+
+Step 4: Convert each group.
+
+    0000 -> 0
+    1110 -> E
+    0111 -> 7
+
+Ignore the unnecessary leading zero.
+
+Therefore:
+
+    (347)₈ = (E7)₁₆
+
+
+Example 3:
+
+    Convert (625)₈ to Hexadecimal.
+
+Step 1: Octal to Binary
+
+    6 -> 110
+    2 -> 010
+    5 -> 101
+
+    Therefore:
+
+    625₈ = 110010101₂
+
+Step 2: Group into sets of 4.
+
+    110010101
+    1 1001 0101
+
+Step 3: Add leading zeros.
+
+    0001 1001 0101
+
+Step 4: Convert each group.
+
+    0001 -> 1
+    1001 -> 9
+    0101 -> 5
+
+Therefore:
+
+    (625)₈ = (195)₁₆
+
+Python:
+
+    hex(int("56", 8))
+    hex(int("347", 8))
+    hex(int("625", 8))
 """
+
+print("\nOctal to Hexadecimal:")
+
+print(hex(int("56", 8)))
+print(hex(int("347", 8)))
+print(hex(int("625", 8)))
+
+# Output:
+# Octal to Hexadecimal:
+# 0x2e
+# 0xe7
+# 0x195
