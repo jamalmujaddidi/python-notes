@@ -938,3 +938,51 @@ print(bin(int("3F", 16)))
 # Hexadecimal to Binary:
 # 0b10100110
 # 0b111111
+
+
+
+# ------------------------------------------------------------
+# 6.2 HEXADECIMAL TO OCTAL
+# ------------------------------------------------------------
+
+"""
+To convert hexadecimal to octal:
+
+    First convert Hexadecimal to Binary.
+    Then convert Binary to Octal.
+
+    Hexadecimal -> Binary -> Octal
+
+Example 1:
+
+    Convert (A6)₁₆ to Octal.
+
+Step 1: Hexadecimal to Binary.
+
+    A -> 1010
+    6 -> 0110
+
+    Therefore:
+
+    A6₁₆ = 10100110₂
+
+Step 2: Group binary digits into sets of 3,
+starting from the right.
+
+    10100110
+    10 100 110
+
+Step 3: Add leading zeros to complete the first group.
+
+    010 100 110
+
+Step 4: Convert each group into octal.
+
+    010 -> 2
+    100 -> 4
+    110 -> 6
+
+Therefore:
+
+    (A6)₁₆ = (246)₈
+"""
