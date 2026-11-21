@@ -985,4 +985,55 @@ Step 4: Convert each group into octal.
 Therefore:
 
     (A6)₁₆ = (246)₈
+
+
+Example 2:
+
+    Convert (3F)₁₆ to Octal.
+
+Step 1: Hexadecimal to Binary.
+
+    3 -> 0011
+    F -> 1111
+
+    Therefore:
+
+    3F₁₆ = 00111111₂
+
+Step 2: Group into sets of 3, starting from the right.
+
+    00111111
+    00 111 111
+
+Step 3: Add leading zeros.
+
+    000 111 111
+
+Step 4: Convert each group into octal.
+
+    000 -> 0
+    111 -> 7
+    111 -> 7
+
+Ignore the unnecessary leading zero.
+
+Therefore:
+
+    (3F)₁₆ = (77)₈
+
+
+Python:
+
+    oct(int("A6", 16))
+    oct(int("3F", 16))
 """
+
+print("\nHexadecimal to Octal:")
+
+print(oct(int("A6", 16)))
+print(oct(int("3F", 16)))
+
+# Output:
+# Hexadecimal to Octal:
+# 0o246
+# 0o77
