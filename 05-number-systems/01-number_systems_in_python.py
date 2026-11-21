@@ -1037,3 +1037,49 @@ print(oct(int("3F", 16)))
 # Hexadecimal to Octal:
 # 0o246
 # 0o77
+
+
+
+# ============================================================
+# 7. IMPORTANT PYTHON CONVERSION FUNCTIONS AND PREFIXES
+# ============================================================
+
+"""
+Function    Purpose
+-----------------------------------------------
+int()       Converts a number string in a specified base
+bin()       Converts a decimal integer to binary
+oct()       Converts a decimal integer to octal
+hex()       Converts a decimal integer to hexadecimal
+
+Prefixes:
+
+    0b -> Binary
+    0o -> Octal
+    0x -> Hexadecimal
+
+Examples:
+
+    int("1010", 2)       # Binary to Decimal
+    int("17", 8)         # Octal to Decimal
+    int("1F", 16)        # Hexadecimal to Decimal
+
+    bin(25)              # Decimal to Binary
+    oct(83)              # Decimal to Octal
+    hex(439)             # Decimal to Hexadecimal
+
+Important Difference:
+
+For non-decimal to decimal conversion, use:
+
+    int("number", base)
+
+For decimal to non-decimal conversion, use:
+
+    bin(number)
+    oct(number)
+    hex(number)
+
+The prefixes in the returned strings identify the base
+of the converted representation.
+"""
