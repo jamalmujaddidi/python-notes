@@ -1083,3 +1083,98 @@ For decimal to non-decimal conversion, use:
 The prefixes in the returned strings identify the base
 of the converted representation.
 """
+
+
+# ============================================================
+# 8. FINAL SUMMARY
+# ============================================================
+
+"""
+NUMBER SYSTEM CONVERSION SUMMARY
+================================
+
+1. NON-DECIMAL TO DECIMAL
+
+    Use int("number", base).
+
+    Binary      -> int("1010", 2)
+    Octal       -> int("17", 8)
+    Hexadecimal -> int("1F", 16)
+
+
+2. DECIMAL TO NON-DECIMAL
+
+    Use Python's built-in functions.
+
+    Decimal -> Binary       -> bin()
+    Decimal -> Octal        -> oct()
+    Decimal -> Hexadecimal  -> hex()
+
+
+3. BINARY TO OCTAL
+
+    Group binary digits into sets of 3,
+    starting from the right.
+
+    Reason: 8 = 2^3
+
+
+4. BINARY TO HEXADECIMAL
+
+    Group binary digits into sets of 4,
+    starting from the right.
+
+    Reason: 16 = 2^4
+
+
+5. OCTAL TO BINARY
+
+    Replace each octal digit with exactly 3 binary bits.
+
+
+6. HEXADECIMAL TO BINARY
+
+    Replace each hexadecimal digit with exactly 4 binary bits.
+
+
+7. OCTAL TO HEXADECIMAL
+
+    Octal -> Binary -> Hexadecimal
+
+
+8. HEXADECIMAL TO OCTAL
+
+    Hexadecimal -> Binary -> Octal
+
+
+IMPORTANT PREFIXES:
+
+    0b -> Binary (Base 2)
+    0o -> Octal (Base 8)
+    0x -> Hexadecimal (Base 16)
+
+
+IMPORTANT RULES:
+
+    Non-decimal -> Decimal:
+        Use positional powers or int("number", base).
+
+    Decimal -> Non-decimal:
+        Repeatedly divide by the target base and read
+        remainders from bottom to top.
+
+    Binary -> Octal:
+        Group 3 bits.
+
+    Binary -> Hexadecimal:
+        Group 4 bits.
+
+    Octal -> Binary:
+        1 octal digit = 3 binary bits.
+
+    Hexadecimal -> Binary:
+        1 hexadecimal digit = 4 binary bits.
+
+    Octal <-> Hexadecimal:
+        Convert through Binary.
+"""
