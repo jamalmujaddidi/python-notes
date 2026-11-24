@@ -55,3 +55,63 @@ print(type(x))
 
 # Output:
 # <class 'int'>
+
+
+# ---------------------------
+# Python Numeric Data Types
+# ---------------------------
+
+# Python provides three main built-in numeric types:
+#
+# 1. Integer (int)
+# 2. Floating-Point (float)
+# 3. Complex (complex)
+
+
+# ============================================================
+# 1. INTEGER (int)
+# ============================================================
+
+# An integer is a numeric data type used to represent
+# whole numbers without a decimal or fractional part.
+#
+# Integers can be:
+#
+# Positive: 10, 25, 100
+# Negative: -5, -20, -100
+# Zero:      0
+#
+# Integers belong to the int class.
+
+
+# ---------------------------
+# Examples of Integers
+# ---------------------------
+
+age = 25
+temperature = -10
+students = 50
+balance = 0
+
+print(age)
+# Output:
+# 25
+
+print(type(age))
+# Output:
+# <class 'int'>
+
+
+# Other examples:
+
+print(type(temperature))
+# Output:
+# <class 'int'>
+
+print(type(students))
+# Output:
+# <class 'int'>
+
+print(type(balance))
+# Output:
+# <class 'int'>
