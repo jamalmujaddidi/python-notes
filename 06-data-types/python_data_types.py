@@ -180,3 +180,92 @@ binary_number = 0b11001
 print(binary_number)
 # Output:
 # 25
+
+
+# ---------------------------
+# Octal (Base 8)
+# ---------------------------
+
+# Octal literals use the prefix 0o or 0O.
+
+octal_number = 0o31
+
+print(octal_number)
+# Output:
+# 25
+
+
+# ---------------------------
+# Hexadecimal (Base 16)
+# ---------------------------
+
+# Hexadecimal literals use the prefix 0x or 0X.
+
+hex_number = 0x19
+
+print(hex_number)
+# Output:
+# 25
+
+
+# ---------------------------
+# Checking Their Types
+# ---------------------------
+
+print(type(decimal_number))
+# Output:
+# <class 'int'>
+
+print(type(binary_number))
+# Output:
+# <class 'int'>
+
+print(type(octal_number))
+# Output:
+# <class 'int'>
+
+print(type(hex_number))
+# Output:
+# <class 'int'>
+
+
+# Important:
+# Although these numbers are written using different
+# number systems, Python interprets all of them as int objects.
+#
+# Decimal:      25
+# Binary:       0b11001
+# Octal:        0o31
+# Hexadecimal:  0x19
+#
+# All represent the same integer value: 25.
+
+
+# ============================================================
+# UNDERSCORES IN INTEGER LITERALS
+# ============================================================
+
+# Python allows underscores inside numeric literals
+# to improve readability, especially for large numbers.
+#
+# Underscores do not change the actual numeric value.
+
+
+population = 1_000_000
+
+print(population)
+# Output:
+# 1000000
+
+
+# This is equivalent to:
+
+population = 1000000
+
+print(population)
+# Output:
+# 1000000
+
+
+# Underscores are only for readability.
+# They are not part of the actual numeric value.
