@@ -115,3 +115,68 @@ print(type(students))
 print(type(balance))
 # Output:
 # <class 'int'>
+
+
+# ---------------------------
+# Python Integers Have No Fixed Size
+# ---------------------------
+
+# Unlike fixed-width integer types commonly found in
+# other programming languages, Python integers can grow
+# to represent very large values.
+#
+# Their practical limit is mainly determined by
+# the available memory.
+
+
+x = 999999999999999999999999999999999999
+
+print(x)
+
+# Output:
+# 999999999999999999999999999999999999
+
+print(type(x))
+
+# Output:
+# <class 'int'>
+
+
+# ============================================================
+# INTEGER LITERALS AND NUMBER SYSTEM PREFIXES
+# ============================================================
+
+# Python supports different number systems for integer literals.
+#
+# The prefixes tell Python how to interpret a number.
+#
+# 1. Decimal      -> No special prefix
+# 2. Binary       -> 0b or 0B
+# 3. Octal        -> 0o or 0O
+# 4. Hexadecimal  -> 0x or 0X
+
+
+# ---------------------------
+# Decimal (Base 10)
+# ---------------------------
+
+# Decimal is the default number system in Python.
+
+decimal_number = 25
+
+print(decimal_number)
+# Output:
+# 25
+
+
+# ---------------------------
+# Binary (Base 2)
+# ---------------------------
+
+# Binary literals use the prefix 0b or 0B.
+
+binary_number = 0b11001
+
+print(binary_number)
+# Output:
+# 25
