@@ -269,3 +269,77 @@ print(population)
 
 # Underscores are only for readability.
 # They are not part of the actual numeric value.
+
+
+
+# ============================================================
+# 1. FLOATING-POINT NUMBERS (float)
+# ============================================================
+
+# A floating-point number is a numeric value that can contain
+# a fractional or decimal part.
+#
+# Floating-point numbers are represented by the float class.
+#
+# Examples:
+# 10.5
+# -3.14
+# 0.75
+# 0.0
+
+
+# ---------------------------
+# Creating a float
+# ---------------------------
+
+x = 10.5
+
+print(x)
+# Output:
+# 10.5
+
+print(type(x))
+# Output:
+# <class 'float'>
+
+
+# ---------------------------
+# Scientific Notation
+# ---------------------------
+
+# Python allows very large or very small floating-point
+# numbers to be represented using scientific notation.
+#
+# The letter 'e' means:
+# "Multiply by 10 raised to the power of."
+
+
+# Example 1:
+x = 1.5e3
+
+print(x)
+# Output:
+# 1500.0
+#
+# 1.5e3 = 1.5 x 10^3 = 1500.0
+
+
+# Example 2:
+x = 2.5e-3
+
+print(x)
+# Output:
+# 0.0025
+#
+# 2.5e-3 = 2.5 x 10^-3 = 0.0025
+
+
+# More examples:
+
+print(1e3)       # 1000.0
+print(5e2)       # 500.0
+print(2.5e2)     # 250.0
+print(3e-2)      # 0.03
+
+# Note:
+# Numbers written using scientific notation are still floats.
