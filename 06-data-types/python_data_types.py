@@ -343,3 +343,52 @@ print(3e-2)      # 0.03
 
 # Note:
 # Numbers written using scientific notation are still floats.
+
+
+
+# ============================================================
+# 3. COMPLEX NUMBERS (complex)
+# ============================================================
+
+# A complex number contains two parts:
+#
+# 1. Real part
+# 2. Imaginary part
+#
+# Mathematical representation:
+#
+# a + bj
+#
+# a = Real part
+# b = Imaginary part
+# j = Imaginary unit
+#
+# Note:
+# Mathematics commonly uses 'i' for the imaginary unit.
+# Python uses 'j'.
+
+
+# ---------------------------
+# Creating Complex Numbers
+# ---------------------------
+
+x = 3 + 2j
+
+print(x)
+# Output:
+# (3+2j)
+
+print(type(x))
+# Output:
+# <class 'complex'>
+
+
+# More examples:
+
+print(5 + 3j)
+print(-2 + 4j)
+print(7 - 2j)
+print(3j)
+print(-5j)
+
+# These are all complex numbers.
