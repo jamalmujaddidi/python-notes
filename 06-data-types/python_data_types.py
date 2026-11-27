@@ -444,3 +444,79 @@ z = 3 + 4j
 print(abs(z))
 # Output:
 # 5.0
+
+
+# ---------------------------
+# Addition of Complex Numbers
+# ---------------------------
+
+# Real parts are added together.
+# Imaginary parts are added together.
+
+z1 = 3 + 2j
+z2 = 4 + 5j
+
+print(z1 + z2)
+# Output:
+# (7+7j)
+
+# Rule:
+# (a + bj) + (c + dj) = (a+c) + (b+d)j
+
+
+# ---------------------------
+# Subtraction of Complex Numbers
+# ---------------------------
+
+z1 = 5 + 4j
+z2 = 2 + 3j
+
+print(z1 - z2)
+# Output:
+# (3+1j)
+
+# Rule:
+# (a + bj) - (c + dj) = (a-c) + (b-d)j
+
+
+# ---------------------------
+# Multiplication of Complex Numbers
+# ---------------------------
+
+# Multiplication uses the distributive property.
+#
+# Important mathematical rule:
+#
+# j * j = -1
+
+z1 = 2 + 3j
+z2 = 4 + 5j
+
+print(z1 * z2)
+# Output:
+# (-7+22j)
+
+# Calculation:
+#
+# (2 + 3j)(4 + 5j)
+# = 8 + 10j + 12j + 15j^2
+# = 8 + 22j - 15
+# = -7 + 22j
+
+
+# ---------------------------
+# Division of Complex Numbers
+# ---------------------------
+
+z1 = 6 + 4j
+z2 = 2 + 2j
+
+print(z1 / z2)
+# Output:
+# (2.5-0.5j)
+
+# Note:
+# Python performs complex-number division automatically.
+#
+# The result is:
+# 2.5 - 0.5j
