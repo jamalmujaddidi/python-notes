@@ -392,3 +392,55 @@ print(3j)
 print(-5j)
 
 # These are all complex numbers.
+
+
+# ---------------------------
+# Real Part and Imaginary Part
+# ---------------------------
+
+z = 3 + 2j
+
+print(z.real)
+# Output:
+# 3.0
+
+print(z.imag)
+# Output:
+# 2.0
+
+# Important:
+# Python returns both real and imaginary parts as floats.
+
+
+# Negative imaginary part:
+
+z = 5 - 3j
+
+print(z.real)
+# Output:
+# 5.0
+
+print(z.imag)
+# Output:
+# -3.0
+
+
+# ---------------------------
+# Absolute Value / Magnitude
+# ---------------------------
+
+# The abs() function returns the magnitude of a complex number.
+#
+# Magnitude is the distance between the origin (0, 0) and
+# the point representing the complex number on the complex plane.
+#
+# Formula:
+#
+# |a + bj| = sqrt(a^2 + b^2)
+
+
+z = 3 + 4j
+
+print(abs(z))
+# Output:
+# 5.0
