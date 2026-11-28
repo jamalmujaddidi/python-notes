@@ -566,3 +566,70 @@ print(z1 != z2)
 #
 # This is because complex numbers do not have a natural
 # ordering like integers and floats.
+
+
+
+
+# ============================================================
+# 3. STRINGS (str)
+# ============================================================
+
+# A string is a sequence of characters used to represent
+# text data in Python.
+#
+# Strings are represented by the str class.
+#
+# A string can be enclosed in:
+#
+# 1. Single quotes:  ' '
+# 2. Double quotes:  " "
+# 3. Triple single quotes:  ''' '''
+# 4. Triple double quotes:  """ """
+#
+# Python treats everything inside the quotation marks as text.
+
+
+# ---------------------------
+# Examples of Strings
+# ---------------------------
+
+name = "John"
+number = "1234"
+text = 'Python Programming'
+message = "Hello World!"
+emoji = "Python 😊"
+
+print(name)
+print(number)
+print(text)
+print(message)
+print(emoji)
+
+
+# ---------------------------
+# Characters and Strings
+# ---------------------------
+
+# A character is a single symbol.
+#
+# Examples:
+# A, a, 1, @, ❤️, ب, 你
+#
+# A string is a sequence of one or more characters.
+#
+# Examples:
+#
+# "A"        -> String containing one character
+# "Hello"    -> String containing five characters
+# "12345"    -> String containing five digits
+# "😊👍"      -> String containing two emoji characters
+#
+# Remember:
+#
+# Character = One symbol
+# String = One or more characters enclosed in quotes
+
+
+# Important:
+# Even "1234" is a string, not an integer,
+# because it is enclosed in quotation marks.
