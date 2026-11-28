@@ -520,3 +520,49 @@ print(z1 / z2)
 #
 # The result is:
 # 2.5 - 0.5j
+
+
+# ---------------------------
+# Complex Conjugate
+# ---------------------------
+
+# The conjugate changes the sign of the imaginary part.
+#
+# 3 + 2j  ->  3 - 2j
+# 3 - 2j  ->  3 + 2j
+#
+# Python provides the conjugate() method.
+
+z = 3 + 2j
+
+print(z.conjugate())
+# Output:
+# (3-2j)
+
+
+# ---------------------------
+# Comparison of Complex Numbers
+# ---------------------------
+
+# Complex numbers support equality and inequality comparisons.
+
+z1 = 3 + 2j
+z2 = 3 + 2j
+
+print(z1 == z2)
+# Output:
+# True
+
+print(z1 != z2)
+# Output:
+# False
+
+# Important:
+# Python does not support ordinary ordering comparisons
+# between complex numbers, such as:
+#
+# z1 > z2
+# z1 < z2
+#
+# This is because complex numbers do not have a natural
+# ordering like integers and floats.
